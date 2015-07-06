@@ -1,0 +1,18 @@
+C:\Users\User\Desktop\Бакалавры СААУП\Utils\bin\Debug\Utils.dll
+C:\Users\User\Desktop\Бакалавры СААУП\Utils\bin\Debug\Utils.pdb
+C:\Users\User\Desktop\Бакалавры СААУП\Utils\obj\Debug\Utils.dll
+C:\Users\User\Desktop\Бакалавры СААУП\Utils\obj\Debug\Utils.pdb
+C:\Users\ДергачевКВ\Desktop\Бакалавры СААУП\Utils\bin\Debug\Utils.dll
+C:\Users\ДергачевКВ\Desktop\Бакалавры СААУП\Utils\bin\Debug\Utils.pdb
+C:\Users\ДергачевКВ\Desktop\Бакалавры СААУП\Utils\obj\Debug\Utils.csprojResolveAssemblyReference.cache
+C:\Users\ДергачевКВ\Desktop\Бакалавры СААУП\Utils\obj\Debug\Utils.dll
+C:\Users\ДергачевКВ\Desktop\Бакалавры СААУП\Utils\obj\Debug\Utils.pdb
+D:\Projects\Utils\bin\Debug\Utils.dll
+D:\Projects\Utils\bin\Debug\Utils.pdb
+D:\Projects\Utils\obj\Debug\Utils.dll
+D:\Projects\Utils\obj\Debug\Utils.pdb
+E:\Projects\Projects\Radiosvyaz\Utils\bin\Debug\Utils.dll
+E:\Projects\Projects\Radiosvyaz\Utils\bin\Debug\Utils.pdb
+E:\Projects\Projects\Radiosvyaz\Utils\obj\Debug\Utils.csprojResolveAssemblyReference.cache
+E:\Projects\Projects\Radiosvyaz\Utils\obj\Debug\Utils.dll
+E:\Projects\Projects\Radiosvyaz\Utils\obj\Debug\Utils.pdb

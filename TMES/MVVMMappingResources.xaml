@@ -1,0 +1,70 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ViewModel="clr-namespace:TMES.ViewModel"
+                    xmlns:View="clr-namespace:TMES.View"
+                    xmlns:conv="clr-namespace:TMES.Converters"
+                    >
+
+    <conv:DataGridFixConverter x:Key="DataGridFixConverter" />
+    <conv:ColorToIntConverter x:Key="ColorToIntConverter" />
+    
+    <DataTemplate DataType="{x:Type ViewModel:MainMenuViewModel}">
+        
+        <View:MainMenuView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:MonitoreViewModel}">
+      
+        <View:MonitoreView />
+   </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:OrdersViewModel}">
+
+        <View:OrdersView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:EnterpriseViewModel}">
+        <View:EnterpriseView />
+    </DataTemplate>
+
+    <!-- Department module -->
+    <DataTemplate DataType="{x:Type ViewModel:DepartmentManagerViewModel}">
+        <View:DepartmentManagerView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ViewModel:DepartmentEditViewModel}">
+        <View:DepartmentEditView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ViewModel:DepartmentListViewModel}">
+        <View:DepartmentListView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:WorkersViewModel}">
+        <View:WorkersListView />
+    </DataTemplate>
+
+    <!-- Machine module -->
+    <DataTemplate DataType="{x:Type ViewModel:MachineManagerViewModel}">
+        <View:MachineManagerView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:MachineListViewModel}">
+        <View:MachineListView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ViewModel:MachineEditViewModel}">
+        <View:MachineEditView />
+    </DataTemplate>
+
+   
+
+    <!-- Person Module -->
+    <DataTemplate DataType="{x:Type ViewModel:PersonManagerViewModel}">
+        <View:PersonManagerView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ViewModel:PersonListViewModel}">
+        <View:PersonListView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ViewModel:PersonEditViewModel}">
+        <View:PersonEditView />
+    </DataTemplate>
+
+</ResourceDictionary>

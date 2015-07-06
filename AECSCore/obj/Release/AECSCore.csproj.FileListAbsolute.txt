@@ -1,0 +1,5 @@
+D:\Projects\AECSCore\bin\Release\AECSCore.dll
+D:\Projects\AECSCore\bin\Release\AECSCore.pdb
+D:\Projects\AECSCore\obj\Release\AECSCore.dll
+D:\Projects\AECSCore\obj\Release\AECSCore.pdb
+D:\Projects\AECSCore\obj\Release\AECSCore.csprojResolveAssemblyReference.cache

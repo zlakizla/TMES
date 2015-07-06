@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="TMES.View.DepartmentListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <UserControl.Resources>
+
+        <ResourceDictionary Source="/Themes/ExpressionDark.xaml"></ResourceDictionary>
+
+    </UserControl.Resources>
+
+    
+    <Grid >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+        <Menu Grid.Row="0" Background="{StaticResource ButtonBackground}"  >
+
+            <MenuItem  Style="{StaticResource SubRibbonButton}" Width="auto" Command="{Binding CreateCommand}" >
+                <MenuItem.Header>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,4"><Run Text="СОЗДАТЬ"/></TextBlock>
+                </MenuItem.Header>
+            </MenuItem>
+
+            <MenuItem   Style="{StaticResource SubRibbonButton}" >
+                <MenuItem.Header>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,4"><Run Text="ИЗМЕНИТЬ"/></TextBlock>
+                </MenuItem.Header>
+            </MenuItem>
+
+            <MenuItem   Style="{StaticResource SubRibbonButton}" Command="{Binding DeleteCommand}" >
+                <MenuItem.Header>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,4"><Run Text="УДАЛИТЬ"/></TextBlock>
+                </MenuItem.Header>
+            </MenuItem>
+        </Menu>
+
+        <DataGrid CanUserAddRows="False" Grid.Row="1" ItemsSource="{Binding Items, UpdateSourceTrigger=PropertyChanged}"
+                  Style="{StaticResource BasicTable}" 
+                   
+                  SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay,
+                                Converter={StaticResource DataGridFixConverter}}" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Код" Binding="{Binding ShortName}" />
+
+                <DataGridTemplateColumn Header="Цвет">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Border Width="24" Height="24"
+                                        Background="{Binding ColorCode, Converter={StaticResource ColorToIntConverter}}" 
+                                  
+                                        VerticalAlignment="Center" >
+
+                            </Border>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ExpressionDark/TabControl.xaml" />
+        <ResourceDictionary Source="ExpressionDark/DataGrid.xaml" />
+        <ResourceDictionary Source="ExpressionDark/Button.xaml" />
+        <ResourceDictionary Source="ExpressionDark/TextBox.xaml" />
+        <ResourceDictionary Source="ExpressionDark/ScrollBar.xaml" />
+        <ResourceDictionary Source="ExpressionDark/ComboBox.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

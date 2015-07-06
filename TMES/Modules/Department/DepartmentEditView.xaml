@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="TMES.View.DepartmentEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+               xmlns:View="clr-namespace:TMES.View" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             Foreground="White">
+
+
+   <UserControl.Resources>
+
+        <ResourceDictionary Source="/Themes/ExpressionDark.xaml"></ResourceDictionary>
+
+    </UserControl.Resources> 
+    <Border Background="#3d3d3d" Margin="10,0,0,0" BorderBrush="#2d2e32" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Menu Grid.Row="0" Background="{StaticResource ButtonBackground}"  >
+
+                <MenuItem  Style="{StaticResource SubRibbonButton}" Width="auto" Command="{Binding SaveCommand}" >
+                    <MenuItem.Header>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,4"><Run Text="СОХРАНИТЬ"/></TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+
+                <MenuItem   Style="{StaticResource SubRibbonButton}" >
+                    <MenuItem.Header>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,4"><Run Text="ОТМЕНИТЬ"/></TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+
+                <MenuItem HorizontalAlignment="Right"  Style="{StaticResource SubRibbonButton}" >
+                    <MenuItem.Header>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,4"><Run Text="ЗАКРЫТЬ"/></TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+            </Menu>
+
+            <ScrollViewer Grid.Row="1">
+                <StackPanel Grid.Row="1" Orientation="Vertical" >
+                    <Grid Grid.Row="1" HorizontalAlignment="Center" Margin="5,5,5,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Название"
+                           Style="{StaticResource FormLabel}" />
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedItem.Name}"
+                     Style="{StaticResource FormTextBox}" />
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Код" 
+                       Style="{StaticResource FormLabel}" />
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedItem.ShortName}" 
+                     Style="{StaticResource FormTextBox}" />
+
+                    </Grid>
+                    
+                    <View:ColorPickerSelector Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2"
+                                          Maximum="255" MaxWidth="300"
+                                          Color="{Binding SelectedColor, 
+                                                  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+               
+                    <TextBlock Text="Оборудование, закрепленное за цехом"
+                           HorizontalAlignment="Center" />
+
+
+                <ContentControl Margin="20, 5, 20, 5"  Grid.Row="3"  Grid.ColumnSpan="2" 
+                    MaxHeight="300"
+                    Content="{Binding MachineViewModel}"
+                    />
+
+                    <TextBlock Text="Список работников цеха"
+                           HorizontalAlignment="Center" />
+                    
+                    <ContentControl Margin="20, 5, 20, 5"  Grid.Row="4"  Grid.ColumnSpan="2" 
+                MaxHeight="300"
+                Content="{Binding PersonViewModel}"
+                />
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</UserControl>

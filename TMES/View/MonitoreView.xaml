@@ -1,0 +1,149 @@
+﻿<UserControl x:Class="TMES.View.MonitoreView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/ExpressionDark.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/Theme.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <Menu  Background="#2a2a2c">
+
+
+         
+                <MenuItem Style="{StaticResource RibbonButton}" Template="{DynamicResource MenuItemControlTemplate1}" >
+                    <MenuItem.Header>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,4"><Run Text="Вид"/></TextBlock>
+                    </MenuItem.Header>
+
+                    <MenuItem Header="Таблица" Style="{StaticResource RibbonMenuDropRow}" Height="30" >
+
+                    </MenuItem>
+                    <MenuItem Header="Подразделение" ItemsSource="{Binding AllDepartments}"  Style="{StaticResource RibbonMenuDropRow}" Template="{DynamicResource MenuItemControlTemplate2}" Height="30" >
+                        <MenuItem.ItemContainerStyle>
+
+                            <Style BasedOn="{StaticResource RibbonMenuDropRow}" TargetType="MenuItem">
+                               
+                                <Setter Property="MenuItem.Header" Value="{Binding Name}" />
+                  
+                            </Style>
+                        </MenuItem.ItemContainerStyle>
+                   
+   
+                    </MenuItem>
+                    <MenuItem Style="{StaticResource RibbonMenuDropRow}" Height="30" >
+                        <MenuItem.Header>
+                            <Grid ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="40" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" HorizontalAlignment="Right">Разместить оборудование</TextBlock>
+                                <CheckBox Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{DynamicResource CheckBoxStyle2}"/>
+
+                            </Grid>
+
+
+                        </MenuItem.Header>
+
+                    </MenuItem>
+                </MenuItem>
+
+        
+                <MenuItem Style="{StaticResource RibbonButton}">
+                    <MenuItem.Header>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,4"><Run Text="Настройка" /></TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+
+              
+                <MenuItem Style="{StaticResource RibbonButton}">
+                    <MenuItem.Header>
+                        <TextBlock VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="0,0,0,4"><Run Text="Коэфф. исп." /></TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+
+            
+                <MenuItem Style="{StaticResource RibbonButton}">
+                    <MenuItem.Header>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,4"><Run Text="Наряд" /></TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+
+            
+                <MenuItem Style="{StaticResource RibbonButton}">
+                    <MenuItem.Header>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,4"><Run Text="Рабочая запись"/></TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+
+          
+                <MenuItem Style="{StaticResource RibbonButton}">
+                    <MenuItem.Header>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,4"><Run Text="Статус"/></TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+
+           
+                <MenuItem Style="{StaticResource RibbonButton}">
+                    <MenuItem.Header>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,4"><Run Text="Брак"/></TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+            </Menu>
+            <Separator VerticalAlignment="Bottom" Background="#FF615C5C" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Canvas>
+                <Image Source="../Images/PlantMap.png" HorizontalAlignment="Center"  Width="913"/>
+
+                <Border Canvas.Top="40" Canvas.Left="80"  Background="#FF6DDEFF" HorizontalAlignment="Left" Height="111" BorderBrush="Azure" BorderThickness="1"  VerticalAlignment="Top" Width="145">
+
+                    <Grid Margin="5,5,5,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                           
+                            <ColumnDefinition />
+               
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="Машина" />
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="Статус" />
+                        <TextBlock Grid.Column="0" Grid.Row="2" Text="Рабочий" />
+
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="М-12" />
+                        <TextBlock Grid.Column="1" Grid.Row="1" Text="В работе" />
+                        <TextBlock Grid.Column="1" Grid.Row="2" Text="Петров П.П." />
+                    </Grid>
+
+
+                </Border>
+            </Canvas>
+        </Grid>
+
+    </Grid>
+</UserControl>
