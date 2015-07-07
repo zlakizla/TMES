@@ -8,5 +8,7 @@
         <ResourceDictionary Source="ExpressionDark/TextBox.xaml" />
         <ResourceDictionary Source="ExpressionDark/ScrollBar.xaml" />
         <ResourceDictionary Source="ExpressionDark/ComboBox.xaml" />
+
+        <ResourceDictionary Source="Icons/Icons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

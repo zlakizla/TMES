@@ -19,16 +19,22 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <!-- Save/Cancel/Close menu link -->
         <View:ItemEditMenu Grid.Row="0" DataContext="{Binding}" />
 
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Margin="25,0,0,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition />
+                    <RowDefinition  />
                 </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*" />
+                    <ColumnDefinition Width="50*" /> <!-- Photo Block -->
+                </Grid.ColumnDefinitions>
 
-                <Grid Grid.Row="1" HorizontalAlignment="Center" >
-                    
-                    <Grid >
+                <Grid Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" >                              
+                    <!-- First block of fields -->
+                        <Grid >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="auto" />
@@ -39,59 +45,70 @@
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
-                  
+                        </Grid.RowDefinitions>   
                     
+                    <!-- Last Name Field -->
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Фамилия" 
                                Style="{StaticResource FormLabel}" />
-                        <TextBox Grid.Row="0" Grid.Column="1" 
+                    <TextBox Grid.Row="0" Grid.Column="1" 
                                  Style="{StaticResource FormTextBox}"
                                 Text="{Binding SelectedItem.LastName, Mode=TwoWay}" />
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Имя" 
-                               Style="{StaticResource FormLabel}" />
-                        <TextBox Grid.Row="1" Grid.Column="1"
-                                    Style="{StaticResource FormTextBox}"
-                                    Text="{Binding SelectedItem.FirstName, Mode=TwoWay}" />
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Отчество" 
-                               Style="{StaticResource FormLabel}" />
-                        <TextBox Grid.Row="2" Grid.Column="1"
-                                    Style="{StaticResource FormTextBox}"
-                                    Text="{Binding SelectedItem.MiddleName, Mode=TwoWay}" />
 
-                        <!--<TextBlock Grid.Row="3" Grid.Column="0" Text="Пол" 
-                               Style="{StaticResource FormLabel}" />
 
-                        <ComboBox Grid.Row="3" 
-                                  Grid.Column="1" 
-                                  ItemsSource="{Binding Gender, Mode=OneWay}" 
-                                  SelectedItem="{Binding SelectedDepartment, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                  
-                                  Style="{StaticResource FormComboBox}"
-                                  
-                             />-->
-
-                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Подразделение" 
+                    <!-- First Name Field -->
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Имя" 
                                Style="{StaticResource FormLabel}" />
-                        <ComboBox Grid.Row="3" 
-                                  Grid.Column="1" 
-                                  ItemsSource="{Binding Departments, Mode=OneWay}" 
-                                  SelectedItem="{Binding SelectedDepartment, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                  
-                                  Style="{StaticResource FormComboBox}"
+                    <TextBox Grid.Row="1" Grid.Column="1"
+                             Style="{StaticResource FormTextBox}"
+                             Text="{Binding SelectedItem.FirstName, Mode=TwoWay}" />
+                    
+                    <!-- Middle Name Field -->
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Отчество" 
+                               Style="{StaticResource FormLabel}" />
+                    <TextBox Grid.Row="2" Grid.Column="1"
+                             Style="{StaticResource FormTextBox}"
+                             Text="{Binding SelectedItem.MiddleName, Mode=TwoWay}" />
+
+                    <!-- Department block -->
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Подразделение" 
+                               Style="{StaticResource FormLabel}" />
+                    <ComboBox Grid.Row="3" 
+                              Grid.Column="1" 
+                              ItemsSource="{Binding Departments, Mode=OneWay}" 
+                              SelectedItem="{Binding SelectedDepartment, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                              Style="{StaticResource FormComboBox}"
                                   
                              />
 
-                        <TextBlock Grid.Row="4" Grid.Column="0" Text="Должность" 
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Должность" 
                                Style="{StaticResource FormLabel}" />
-                        <TextBox Grid.Row="4" Grid.Column="1"
+                    <TextBox Grid.Row="4" Grid.Column="1"
                                     Style="{StaticResource FormTextBox}"
                                     Text="{Binding SelectedItem.Title, Mode=TwoWay}" />
 
-                        <!--SelectedValue="{Binding SelectedDepartment, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"-->
-
                     </Grid>
+                          
                 </Grid>
 
+                <Border Margin="0,18,0 ,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" >
+                    <StackPanel Orientation="Vertical"  VerticalAlignment="Top" >
+                        <Image />
+
+                        <Button Style="{StaticResource ImageButton}" Padding="0"
+                                    >
+                            <StackPanel Orientation="Horizontal" Margin="0">
+                                <TextBlock Text="Загрузить фотографию" 
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Left"
+                                           Margin="10"
+                                           />
+
+                                <Image Margin="10,0,0,0" Source="{StaticResource PhotosIcon}" HorizontalAlignment="Right" />
+                            </StackPanel>
+                        </Button>
+                    
+                    </StackPanel>
+                </Border>
             </Grid>
     </Grid>
     </Border>

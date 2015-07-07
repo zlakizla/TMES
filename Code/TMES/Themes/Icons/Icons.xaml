@@ -7,5 +7,6 @@
     <BitmapImage x:Key="EnterpriseIcon" UriSource="Enterprise.png" />
     <BitmapImage x:Key="OrdersIcon" UriSource="Orders.png" />
     <BitmapImage x:Key="ToolsIcon" UriSource="Tools.png" />
-    
+
+    <BitmapImage x:Key="PhotosIcon" UriSource="Photos_64.png" />
 </ResourceDictionary>
