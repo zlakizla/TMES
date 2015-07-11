@@ -55,6 +55,7 @@
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Photo.cs" />
+    <Compile Include="Model\Profession.cs" />
     <Compile Include="Model\Title.cs" />
     <Compile Include="Model\Tool.cs" />
     <Compile Include="Model\Worker.cs" />

@@ -70,7 +70,22 @@ namespace DAL
                 return _allTools;
             }
         }
-
+        private DbSet<Profession> _professions;
+        public DbSet<Profession> Professions
+        {
+            get
+            {
+                if (_professions == null)
+                {
+                    _professions = this.Set<Profession>();
+                }
+                return _professions;
+            }
+            set
+            {
+                _professions = value;
+            }
+        }
         private DbSet<Machine> _machines;
         public DbSet<Machine> Machines
         {

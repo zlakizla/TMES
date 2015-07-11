@@ -16,6 +16,7 @@ namespace TMES.ViewModel
             base.OpenedModules.Add(new MachineManagerViewModel());
             base.OpenedModules.Add(new PersonManagerViewModel());
             base.OpenedModules.Add(new ToolsViewModel());
+            OpenedModules.Add(new ProfessionManagerViewModel());
         }
     }
 }

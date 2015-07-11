@@ -115,6 +115,18 @@
       <DependentUpon>PersonManagerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\Persons\PersonManagerViewModel.cs" />
+    <Compile Include="Modules\Profession\ProfessionEditView.xaml.cs">
+      <DependentUpon>ProfessionEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Profession\ProfessionEditViewModel.cs" />
+    <Compile Include="Modules\Profession\ProfessionListView.xaml.cs">
+      <DependentUpon>ProfessionListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Profession\ProfessionListViewModel.cs" />
+    <Compile Include="Modules\Profession\ProfessionManagerView.xaml.cs">
+      <DependentUpon>ProfessionManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Profession\ProfessionManagerViewModel.cs" />
     <Compile Include="Modules\Tools\ToolsViewModel.cs" />
     <Compile Include="Modules\Workers\WorkersListView.xaml.cs">
       <DependentUpon>WorkersListView.xaml</DependentUpon>
@@ -192,6 +204,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Modules\Persons\PersonManagerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Profession\ProfessionEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Profession\ProfessionListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Profession\ProfessionManagerView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
