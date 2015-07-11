@@ -66,9 +66,12 @@
     <DataTemplate DataType="{x:Type ViewModel:PersonEditViewModel}">
         <View:PersonEditView />
     </DataTemplate>
-<DataTemplate DataType="{x:Type ViewModel:ProfessionManagerViewModel}">
-    <View:ProfessionManagerView />
-</DataTemplate>
+    
+    
+     <!-- Profession Module -->
+    <DataTemplate DataType="{x:Type ViewModel:ProfessionManagerViewModel}">
+        <View:ProfessionManagerView />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type ViewModel:ProfessionListViewModel}">
         <View:ProfessionListView />
     </DataTemplate>
