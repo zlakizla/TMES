@@ -62,7 +62,7 @@ namespace TMES.ViewModel
 
         public ProfessionManagerViewModel()
         {
-            base.Name = "Профессии";
+            base.Name = "ПРОФЕССИИ";
             base.Icon = "Machines.png";
         }
 
