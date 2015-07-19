@@ -14,6 +14,10 @@ namespace TMES.ViewModel
         {
             get
             {
+                if (SelectedItem == null)
+                {
+                    return null;
+                }
                 if (_professionEditViewModel == null)
                 {
                     _professionEditViewModel = new ProfessionEditViewModel(this);
@@ -63,7 +67,7 @@ namespace TMES.ViewModel
         public ProfessionManagerViewModel()
         {
             base.Name = "ПРОФЕССИИ";
-            base.Icon = "Machines.png";
+            base.Icon = "Profession.png";
         }
 
     }

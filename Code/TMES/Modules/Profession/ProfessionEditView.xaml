@@ -19,7 +19,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <!--<View:ItemEditMenu Grid.Row="0" DataContext="{Binding}" />-->
+            <View:ItemEditMenu Grid.Row="0" DataContext="{Binding}" />
 
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
@@ -44,12 +44,12 @@
                                Style="{StaticResource FormLabel}" />
                         <TextBox Grid.Row="0" Grid.Column="1" 
                                  Style="{StaticResource FormTextBox}"
-                                Text="{Binding SelectedItem.Name, Mode=TwoWay}" />
+                                Text="{Binding SelectedItem.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         <TextBlock Grid.Row="1" Grid.Column="0" Text="Код" 
                                Style="{StaticResource FormLabel}" />
                         <TextBox Grid.Row="1" Grid.Column="1"
                                     Style="{StaticResource FormTextBox}"
-                                    Text="{Binding SelectedItem.ShortName, Mode=TwoWay}" />
+                                    Text="{Binding SelectedItem.ShortName ,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Подразделение" 
                                Style="{StaticResource FormLabel}" />
                         <!--<ComboBox ItemsSource="{Binding Profession}" SelectedValue="{Binding Division, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"

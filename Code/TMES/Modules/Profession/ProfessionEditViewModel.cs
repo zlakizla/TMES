@@ -68,17 +68,17 @@ namespace TMES.ViewModel
         {
             using(var Context = new UserContext())
             {
-        
-                //var DBRecord = Context.Machines
-               // .SingleOrDefault(x => x.Id == SelectedItem.Id);
 
-               // if(DBRecord != null)
-              //  {
-                  //  Context.Machines.Attach(SelectedItem);
-                  //  Context.Entry(SelectedItem).State = EntityState.Modified;
-             
-                 //   Context.SaveChanges();
-              //  }
+                var DBRecord = Context.Machines
+                .SingleOrDefault(x => x.Id == SelectedItem.Id);
+
+                if (DBRecord != null)
+                {
+                    //Context.Machines.Attach(SelectedItem);
+                    //Context.Entry(SelectedItem).State = EntityState.Modified;
+
+                    //Context.SaveChanges();
+                }
             }
           
         }
