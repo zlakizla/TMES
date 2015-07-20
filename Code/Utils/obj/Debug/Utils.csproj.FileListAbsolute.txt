@@ -16,3 +16,8 @@ E:\Projects\Projects\Radiosvyaz\Utils\bin\Debug\Utils.pdb
 E:\Projects\Projects\Radiosvyaz\Utils\obj\Debug\Utils.csprojResolveAssemblyReference.cache
 E:\Projects\Projects\Radiosvyaz\Utils\obj\Debug\Utils.dll
 E:\Projects\Projects\Radiosvyaz\Utils\obj\Debug\Utils.pdb
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\Utils\bin\Debug\Utils.dll
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\Utils\bin\Debug\Utils.pdb
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\Utils\obj\Debug\Utils.csprojResolveAssemblyReference.cache
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\Utils\obj\Debug\Utils.dll
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\Utils\obj\Debug\Utils.pdb

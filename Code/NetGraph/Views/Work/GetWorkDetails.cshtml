@@ -1,0 +1,19 @@
+﻿@model NetGraph.ViewModels.WorkViewModel
+
+<table class="MinorTable">
+    <tr>
+        <td>НАЗВАНИЕ ОПЕРАЦИИ</td>
+        <td>ШИФР ПРОФЕССИИ</td>
+        <td>СУММ. ТРУДОЕМКОСТЬ</td>
+    </tr>
+
+       @foreach (var Work in Model.RootWorks)
+    {
+        <tr>
+            <td>@Work.Name</td>
+            <td>@Work.Cypher</td>
+            <td>@Work.Duration</td>
+        </tr>   
+    }
+
+</table>

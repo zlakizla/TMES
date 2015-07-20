@@ -22,8 +22,7 @@ namespace DAL
             if(Changed != null)
              Changed();
         }
-        
-        
+               
         private DbSet<Department> _departments;
         public DbSet<Department> Departments
         {

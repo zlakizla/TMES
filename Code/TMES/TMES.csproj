@@ -349,6 +349,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>TestDB.mdf</DependentUpon>
     </Content>
+    <Resource Include="Themes\Icons\Profession.png" />
     <Resource Include="Themes\Icons\Photos_64.png" />
     <Resource Include="Themes\Icons\Orders.png" />
     <Resource Include="Themes\Icons\Tools.png" />

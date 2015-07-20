@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\proj\TMES\Code\TMES\obj\Debug\
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\TMES\obj\Debug\
 TMES
 none
 false
 DEBUG;TRACE
-D:\proj\TMES\Code\TMES\App.xaml
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\TMES\App.xaml
 28-1219885494
 2-1433055253
 481503832717
-211695603129
+21-484865426
 MainWindow.xaml;Modules\Department\DepartmentEditView.xaml;Modules\Department\DepartmentListView.xaml;Modules\ItemEditMenu.xaml;Modules\Machines\MachineEditView.xaml;Modules\Machines\MachineListView.xaml;Modules\Machines\MachineManagerView.xaml;Modules\Persons\PersonEditView.xaml;Modules\Persons\PersonListView.xaml;Modules\Persons\PersonManagerView.xaml;Modules\Profession\ProfessionEditView.xaml;Modules\Profession\ProfessionListView.xaml;Modules\Profession\ProfessionManagerView.xaml;Modules\Workers\WorkersListView.xaml;MVVMMappingResources.xaml;Themes\ExpressionDark.xaml;Themes\ExpressionDark\Button.xaml;Themes\ExpressionDark\ComboBox.xaml;Themes\ExpressionDark\DataGrid.xaml;Themes\ExpressionDark\ScrollBar.xaml;Themes\ExpressionDark\TabControl.xaml;Modules\Department\DepartmentManagerView.xaml;Modules\Enterprise\EnterpriseView.xaml;Modules\Orders\OrdersView.xaml;Themes\ExpressionDark\TextBox.xaml;View\ColorPickerSelector.xaml;View\MainMenuView.xaml;View\MonitoreView.xaml;
 
 False

@@ -1,0 +1,427 @@
+﻿body 
+{
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    color: white;
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    background-color: #2a2a2c;
+}
+
+/* Базовые контролы */
+
+input[type=text]
+{
+    background-color: #575859;
+    border: 1px solid grey;
+    color: #DDD;
+    padding-left: 3px;
+   
+}
+
+.Disabled
+{
+    background-color: grey !important;
+}
+
+select
+{
+    background-color: #575859;
+    border: 1px solid grey;
+    color: #DDD;
+}
+
+.hidden
+{
+    display: none;
+}
+
+.nostretch
+{
+    width: 1%;
+    white-space: nowrap;
+}
+
+.HLButton
+{
+    box-sizing: border-box;
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+}
+
+
+    .HLButton:hover
+    {
+        background-color: #778088;
+        cursor: pointer;
+    }
+
+.HLButtonStatic
+{
+    box-sizing: border-box;
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    height: 40px;
+    background-color: #575859;
+    cursor: pointer;
+}
+
+
+
+    .HLButtonStatic:hover
+    {
+        background-color: #778088;
+        
+    }
+
+.HLButtonCell
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+.HLButtonCell div
+{
+    width: 100%; 
+    float: left;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    min-height: 40px;
+    padding-top: 10px;
+}
+
+    .HLButtonCell:hover
+    {
+        background-color: #778088;
+        cursor: pointer;
+    }
+
+.ModuleHeader
+{
+    border-bottom: 1px solid grey;
+    background-color: #252527;
+    height: 70px;
+    width: 100%;
+    display: table;
+    position: relative;
+}
+
+.ModuleHeaderShort
+{
+     border-bottom: 1px solid grey;
+    background-color: #252527;
+    height: 30px;
+    width: 100%;
+    display: table;
+    position: relative;
+}
+
+
+.PrimaryTable 
+{
+    width: 100%;
+    border-collapse: collapse;
+    clear:both;
+    border: 0;
+    border-spacing: 0px;
+
+}
+
+    .PrimaryTable thead tr
+    {
+        white-space: nowrap;
+      border-top: 1px solid #969696;
+    }
+
+    .PrimaryTable thead tr th
+    {
+        font-weight: normal;
+        text-align: left;
+        background-color: #2d2e32;
+
+        padding: 3px;
+        border-top: 1px solid #969696;
+      
+        border-bottom: 1px solid black;
+    }
+    .PrimaryTable thead tr th:hover
+    {
+        cursor: pointer;
+        background-color: #778088;
+
+    }
+
+.PrimaryTableRow
+{
+    background-color: #3d3d3d;
+}
+
+.PrimaryTableRow .InputCount
+{
+    width: 50px;
+}
+
+.PrimaryTableRow input
+{
+    width: 100%;
+    padding-left: 0px;
+    margin-left: 0px;
+    box-sizing:  content-box;
+}
+
+.PrimaryTableRow select
+{
+    width: 100%;
+    padding-left: 0px;
+    margin-left: 0px;
+ 
+}
+
+.PrimaryTable .PrimaryTableRow:hover
+{
+     background-color: #494a4d;
+
+     cursor: pointer;
+}
+
+.noclick:hover
+{
+
+    cursor: default !important;
+}
+ 
+.PrimaryTableRow :hover
+{
+    background-color: #494a4d;
+}
+
+
+.PrimaryTableRow td
+{
+    border: 1px solid black;
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 7px;
+    white-space: nowrap;
+}
+
+.PrimaryTableInfo
+{
+    float: left;
+}
+
+.columnFilter 
+{
+    padding: 1px;
+    margin: 0px;
+}
+
+.columnFilter select
+{
+    width: 100%;
+}
+
+.columnFilter input
+{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.MainFilterPanel
+{
+    width: 100%;
+    float: left;
+    height: 40px;
+    margin-left: 3px;
+}
+
+.MainFilterPanel div
+{
+    padding-top: 10px;
+}
+
+
+.RowDetailTable
+{
+    display: block;
+    left: 40%;
+    position: relative;
+    white-space: nowrap;
+    background-color: #3d3d3d;
+}
+
+    .RowDetailTable td
+    {
+        border: 1px solid transparent;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+.RowDetailTableInfo 
+{
+
+}
+
+.RowDetailContainer
+{
+    padding: 10px;
+    width: 100%;
+    background-color: #2d2e32 ;
+    float: left;
+}
+
+.SubFilterSearch
+{
+    float: left;
+}
+
+
+.SubFilterPaging
+{
+    float: left;
+}
+
+.SubFilterPaging
+{
+}
+    /* Значок '...' */
+    .SubFilterPaging span
+    {
+        display: block; 
+        float: left;
+        min-width: 20px;
+    }
+
+    .SubFilterPaging a
+    {  
+        background-color: #494a4d; 
+        display: block; float: left;
+        margin: 3px;
+        min-width: 20px;
+        text-align: center;
+        padding: 3px;
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+ 
+        .SubFilterPaging a:hover 
+        {
+            background-color:   #778088 !important;
+            cursor: pointer;
+        }
+
+         .SubFilterPaging .ui-state-disabled 
+        {
+            background-color:  #666666;
+        }
+
+
+.SubFilterSearch
+{
+    margin-left: 3px;
+  
+}
+
+.SubFilterSearch input
+{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.SubFilterLength
+{
+    float: right;
+}
+
+.SelectedRow
+{
+    background-color: #535a5f;
+}
+
+.TableFilterBox
+{
+    margin-bottom: -10px;
+    padding: 0px;
+    vertical-align: bottom;
+}
+
+.SubFilterPaging
+{
+    width: 100%;
+}
+
+.SubFilterPaging label
+{
+    height: 30px;
+    vertical-align: bottom;
+    margin-bottom: -10px;
+}
+
+.SubFilterPaging input
+{
+      vertical-align: bottom;
+      margin-bottom: -9px;
+      padding-top: 5px;
+      height: 18px;
+      /*width: 400px;*/
+}
+
+.ChapterRow
+{
+    width: 100%;
+    height: 40px;
+    display: block;
+    border-top: 2px solid #969696;
+    white-space: nowrap;
+}
+
+.ChapterRowCenter
+{
+    box-sizing: border-box;
+    text-align: center;
+    padding-top: 9px;
+}
+
+.CenterSearchPanel
+{
+    /*text-align: center;*/
+}
+
+.CenterSearchPanel input[type=text]
+{
+    /*position: relative;*/
+    box-sizing: border-box;
+    height: 40px; 
+    width: 90%;
+    padding-top: 7px;
+    padding-left: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: lighter !important;
+}
+
+.DeleteButton
+{
+    text-align: center;
+}
+
+.DeleteButton:hover
+{
+    text-align: center;
+    background-color: #778088 !important;
+    cursor: pointer;
+}
+
+.NotValid
+{
+    border: 1px solid red !important;
+    background-color: red;
+}
