@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RSCore;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace NetGraph.ViewModels
 
     public class MainViewModel
     {
+
+        #region Properties
         private String _order;
         public String Order
         {
@@ -110,9 +113,12 @@ namespace NetGraph.ViewModels
                 _preparationWorks = value;
             }
         }
-
+        #endregion Properties
+       
         public void Load()
         {
+            var Repo = new DepartmentRepository();
+            var Test = Repo.SelectById(1);
             FakeLoad();
             if (AppContext.FindByOrder(Order) == null)
             {

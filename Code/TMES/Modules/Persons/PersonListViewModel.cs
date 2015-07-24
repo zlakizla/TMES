@@ -168,8 +168,6 @@ namespace TMES.ViewModel
                 FirstName = "John"
             };
             Context.Persons.Add(CreatedItem);
-            UserContext.ChangedMade();
-  
             Context.SaveChanges();
         }
 

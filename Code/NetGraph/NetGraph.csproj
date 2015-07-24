@@ -59,9 +59,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -249,6 +246,18 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AECSCore\AECSCore.csproj">
+      <Project>{e06de01f-06ad-4153-86a4-d1b30954c8a9}</Project>
+      <Name>AECSCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{bcaef079-7224-4235-89b2-26db45f4659b}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RSCore\RSCore.csproj">
+      <Project>{d6f0bd48-f57e-4675-9f55-0f9cdef18fae}</Project>
+      <Name>RSCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utils\Utils.csproj">
       <Project>{097b1345-9a8a-4e1b-ac8e-637214593dc0}</Project>
       <Name>Utils</Name>

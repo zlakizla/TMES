@@ -5,9 +5,11 @@ public class DBManager
     {
         get
         {
-            return System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            return System.Configuration.ConfigurationManager.ConnectionStrings["NSIEntities"].ConnectionString;
         }
     }
+
+
 
     private static SqlConnection _mainConn;
     public static SqlConnection MainConn

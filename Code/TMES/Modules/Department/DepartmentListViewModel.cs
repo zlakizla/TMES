@@ -157,9 +157,7 @@ namespace TMES.ViewModel
                 Name = "Цех #", 
                 ShortName = "Ц#"
             };
-            Context.Departments.Add(CreatedItem);
-            UserContext.ChangedMade();
-  
+            Context.Departments.Add(CreatedItem); 
             Context.SaveChanges();
         }
 

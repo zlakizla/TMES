@@ -172,8 +172,6 @@ namespace TMES.ViewModel
                 DepartmentId = 1
             };
             Context.Machines.Add(CreatedItem);
-            UserContext.ChangedMade();
-  
             Context.SaveChanges();
         }
 

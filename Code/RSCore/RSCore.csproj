@@ -30,8 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\NetGraph\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\NetGraph\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,7 +49,74 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\DepartmentRepository.cs" />
+    <Compile Include="OboznPos.cs">
+      <DependentUpon>RSLegacyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OpPos.cs">
+      <DependentUpon>RSLegacyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PDivision.cs">
+      <DependentUpon>RSLegacyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pList.cs">
+      <DependentUpon>RSLegacyModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RSLegacyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RSLegacyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RSLegacyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RSLegacyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RSLegacyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RSLegacyModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Zakaz.cs">
+      <DependentUpon>RSLegacyModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="RSLegacyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RSLegacyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="RSLegacyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RSLegacyModel.edmx</DependentUpon>
+      <LastGenOutput>RSLegacyModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="RSLegacyModel.edmx.diagram">
+      <DependentUpon>RSLegacyModel.edmx</DependentUpon>
+    </None>
+    <None Include="RSLegacyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RSLegacyModel.edmx</DependentUpon>
+      <LastGenOutput>RSLegacyModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AECSCore\AECSCore.csproj">
+      <Project>{e06de01f-06ad-4153-86a4-d1b30954c8a9}</Project>
+      <Name>AECSCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{bcaef079-7224-4235-89b2-26db45f4659b}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

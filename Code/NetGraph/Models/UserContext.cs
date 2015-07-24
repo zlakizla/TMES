@@ -10,81 +10,9 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Data.Entity;
 
-public class UserContext : DbContext
-{
-
-    #region Properties
-
-    private DbSet<Work> _works;
-    public DbSet<Work> Works
-    {
-        get
-        {
-            return _works;
-        }
-        set
-        {
-            _works = value;
-        }
-    }
-
-    private DbSet<Element> _elements;
-    public DbSet<Element> Elements
-    {
-        get
-        {
-            return _elements;
-        }
-        set
-        {
-            _elements = value;
-        }
-    }
-
-    private DbSet<Department> _departments;
-    public DbSet<Department> Departments
-    {
-        get
-        {
-            if (_departments == null)
-            {
-                _departments = this.Set<Department>();
-            }
-            return _departments;
-        }
-        set
-        {
-            _departments = value;
-        }
-    }
-
-    #endregion Properties
-
-    #region Constructor
-    public UserContext()
-        : base("ConnectionString")
-    {
-
-    }
-
-    #endregion Constructor
-
-}
-
 public static class AppContext
 {
-    private static List<UserContext> _userContext;
-    public static List<UserContext> UserContext
-    {
-        get
-        {
-            if (_userContext == null)
-            {
-                _userContext = new List<UserContext>();
-            }
-            return _userContext;
-        }
-    }
+
     private static List<CalendarGraph> _calendarGraph;
 
     public static List<CalendarGraph> CalendarGraph

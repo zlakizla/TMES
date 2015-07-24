@@ -7,22 +7,14 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DAL
 {
     public class UserContext : DbContext
     {
+        #region Models
 
-        public delegate void DbSetHandler();
-        public static event DbSetHandler Changed;
-
-        public static void ChangedMade()
-        {
-            if(Changed != null)
-             Changed();
-        }
-               
         private DbSet<Department> _departments;
         public DbSet<Department> Departments
         {
@@ -90,7 +82,7 @@ namespace DAL
         {
             get
             {
-                if(_machines == null)
+                if (_machines == null)
                 {
                     _machines = this.Set<Machine>();
                 }
@@ -100,9 +92,10 @@ namespace DAL
             {
                 _machines = value;
             }
-        } 
-       
+        }     
 
+        #endregion Models
+   
         public UserContext()
             : base("EntityConnectionString")
         {
@@ -111,9 +104,9 @@ namespace DAL
 
         public static UserContext GetInstance()
         {
+             
             return new UserContext();
         }
-
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -131,6 +124,7 @@ namespace DAL
                 });
         }
         
+        [TestMethod]
         private void TestDB()
         {
             try
@@ -147,7 +141,5 @@ namespace DAL
             }
             
         }
-
-
     }
 }

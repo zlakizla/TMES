@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NSIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'NSI.dbo.MATNORM' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="MATNORM">
+          <Property Name="TIP" Type="nvarchar" MaxLength="1" />
+          <Property Name="IND" Type="nvarchar" MaxLength="4" />
+          <Property Name="PICH" Type="nvarchar" MaxLength="39" />
+          <Property Name="DATE" Type="datetime" />
+          <Property Name="SM" Type="nvarchar" MaxLength="11" />
+          <Property Name="C" Type="float" />
+          <Property Name="Y" Type="float" />
+          <Property Name="F" Type="float" />
+          <Property Name="NM" Type="float" />
+          <Property Name="NC" Type="float" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'NSI.dbo.NAPROF' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="NAPROF">
+          <Property Name="L" Type="nvarchar" MaxLength="3" />
+          <Property Name="PSP" Type="nvarchar" MaxLength="1" />
+          <Property Name="NAZVO" Type="nvarchar" MaxLength="10" />
+        </EntityType>-->
+        <EntityType Name="OboznPos">
+          <Key>
+            <PropertyRef Name="idOPos" />
+          </Key>
+          <Property Name="idOPos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIP" Type="nvarchar" MaxLength="1" />
+          <Property Name="IND" Type="nvarchar" MaxLength="4" />
+          <Property Name="PICH" Type="nvarchar" MaxLength="39" />
+          <Property Name="CHZ" Type="int" />
+          <Property Name="PICHN" Type="nvarchar" MaxLength="39" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'NSI.dbo.OpPlan' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="OpPlan">
+          <Property Name="idPos" Type="int" />
+          <Property Name="NS" Type="tinyint" />
+          <Property Name="SROK" Type="tinyint" />
+          <Property Name="KSK" Type="int" />
+        </EntityType>-->
+        <EntityType Name="OpPos">
+          <Key>
+            <PropertyRef Name="idPos" />
+          </Key>
+          <Property Name="idPos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIP" Type="nvarchar" MaxLength="1" />
+          <Property Name="IND" Type="nvarchar" MaxLength="4" />
+          <Property Name="PICH" Type="nvarchar" MaxLength="39" />
+          <Property Name="ZO" Type="int" />
+          <Property Name="CHZ" Type="int" />
+          <Property Name="sumksk" Type="float" />
+          <Property Name="KPRP" Type="int" />
+          <Property Name="KPRM" Type="int" />
+          <Property Name="PPK" Type="nvarchar" MaxLength="4" />
+          <Property Name="TMC" Type="nvarchar" MaxLength="200" />
+          <Property Name="DImport" Type="datetime" />
+          <Property Name="obozn" Type="nvarchar" MaxLength="39" />
+          <Property Name="naim" Type="nvarchar" MaxLength="100" />
+          <Property Name="RP" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'NSI.dbo.PDivision' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PDivision">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="Shedule" Type="int" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="Number" Type="int" />
+          <Property Name="PCompany_ID" Type="int" />
+          <Property Name="ID_Number_Division" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Owner_Division" Type="int" />
+          <Property Name="Patterns_ID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'NSI.dbo.pList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="pList">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="MidName" Type="varchar" MaxLength="25" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="WorkPhone" Type="varchar" MaxLength="25" />
+          <Property Name="HomePhone" Type="varchar" MaxLength="25" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="Company" Type="int" />
+          <Property Name="Section" Type="int" />
+          <Property Name="Post" Type="int" />
+          <Property Name="Schedule" Type="int" />
+          <Property Name="Avto" Type="varchar" MaxLength="200" />
+          <Property Name="Spack" Type="int" />
+          <Property Name="Config" Type="int" />
+          <Property Name="TabNumber" Type="varchar" MaxLength="50" />
+          <Property Name="GrStatus" Type="int" />
+          <Property Name="ChangeTime" Type="datetime" />
+          <Property Name="IndexForContactId" Type="int" />
+          <Property Name="StatusRecord" Type="int" />
+          <Property Name="Patterns_ID" Type="int" />
+          <Property Name="ID_Number_List" Type="varchar" MaxLength="50" />
+          <Property Name="weight" Type="int" />
+          <Property Name="delta_weight" Type="int" />
+          <Property Name="AutoID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'NSI.dbo.RCONST' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="RCONST">
+          <Property Name="IND1" Type="nvarchar" MaxLength="4" />
+          <Property Name="PICH1" Type="nvarchar" MaxLength="11" />
+          <Property Name="DATE" Type="datetime" />
+          <Property Name="TIP" Type="nvarchar" MaxLength="1" />
+          <Property Name="IND2" Type="nvarchar" MaxLength="4" />
+          <Property Name="PICH2" Type="nvarchar" MaxLength="47" />
+          <Property Name="NS" Type="float" />
+          <Property Name="KSP" Type="float" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'NSI.dbo.TEXNORM' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TEXNORM">
+          <Property Name="TIP" Type="nvarchar" MaxLength="1" />
+          <Property Name="IND" Type="nvarchar" MaxLength="4" />
+          <Property Name="PICH" Type="nvarchar" MaxLength="39" />
+          <Property Name="DATE" Type="datetime" />
+          <Property Name="C" Type="float" />
+          <Property Name="Y" Type="float" />
+          <Property Name="F" Type="float" />
+          <Property Name="SH" Type="float" />
+          <Property Name="SO" Type="float" />
+          <Property Name="KC" Type="float" />
+          <Property Name="KR" Type="float" />
+          <Property Name="VO" Type="float" />
+          <Property Name="TS" Type="float" />
+          <Property Name="KP" Type="float" />
+          <Property Name="TZ" Type="float" />
+          <Property Name="W" Type="float" />
+          <Property Name="L" Type="float" />
+          <Property Name="R" Type="float" />
+          <Property Name="E1" Type="float" />
+          <Property Name="E2" Type="float" />
+          <Property Name="NV" Type="float" />
+          <Property Name="T" Type="float" />
+          <Property Name="obozn" Type="nvarchar" MaxLength="39" />
+        </EntityType>-->
+        <EntityType Name="Zakaz">
+          <Key>
+            <PropertyRef Name="zakaz" />
+          </Key>
+          <Property Name="zakaz" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NaimZak" Type="nvarchar" MaxLength="50" />
+          <Property Name="NumVPR" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'NSI.dbo.ZakazVPR' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ZakazVPR">
+          <Property Name="Z" Type="nvarchar" MaxLength="8" />
+          <Property Name="D" Type="datetime" />
+          <Property Name="PTP" Type="nvarchar" MaxLength="5" />
+          <Property Name="T_KU" Type="nvarchar" MaxLength="4" />
+          <Property Name="IND_KU" Type="nvarchar" MaxLength="8" />
+          <Property Name="OBOZN_KU" Type="nvarchar" MaxLength="14" />
+          <Property Name="T_CH" Type="nvarchar" MaxLength="3" />
+          <Property Name="IND_CH" Type="nvarchar" MaxLength="6" />
+          <Property Name="OBOZN_CH" Type="nvarchar" MaxLength="13" />
+          <Property Name="KSP" Type="float" />
+          <Property Name="id" Type="nvarchar" MaxLength="100" />
+        </EntityType>-->
+        <EntityContainer Name="NSIModelStoreContainer">
+          <EntitySet Name="OboznPos" EntityType="Self.OboznPos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OpPos" EntityType="Self.OpPos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zakaz" EntityType="Self.Zakaz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PDivision" EntityType="Self.PDivision" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PDivision].[ID] AS [ID], 
+    [PDivision].[Name] AS [Name], 
+    [PDivision].[Description] AS [Description], 
+    [PDivision].[Shedule] AS [Shedule], 
+    [PDivision].[GroupID] AS [GroupID], 
+    [PDivision].[Number] AS [Number], 
+    [PDivision].[PCompany_ID] AS [PCompany_ID], 
+    [PDivision].[ID_Number_Division] AS [ID_Number_Division], 
+    [PDivision].[ID_Owner_Division] AS [ID_Owner_Division], 
+    [PDivision].[Patterns_ID] AS [Patterns_ID]
+    FROM [dbo].[PDivision] AS [PDivision]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="pList" EntityType="Self.pList" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [pList].[ID] AS [ID], 
+    [pList].[Name] AS [Name], 
+    [pList].[FirstName] AS [FirstName], 
+    [pList].[MidName] AS [MidName], 
+    [pList].[Status] AS [Status], 
+    [pList].[WorkPhone] AS [WorkPhone], 
+    [pList].[HomePhone] AS [HomePhone], 
+    [pList].[Picture] AS [Picture], 
+    [pList].[BirthDate] AS [BirthDate], 
+    [pList].[Address] AS [Address], 
+    [pList].[Company] AS [Company], 
+    [pList].[Section] AS [Section], 
+    [pList].[Post] AS [Post], 
+    [pList].[Schedule] AS [Schedule], 
+    [pList].[Avto] AS [Avto], 
+    [pList].[Spack] AS [Spack], 
+    [pList].[Config] AS [Config], 
+    [pList].[TabNumber] AS [TabNumber], 
+    [pList].[GrStatus] AS [GrStatus], 
+    [pList].[ChangeTime] AS [ChangeTime], 
+    [pList].[IndexForContactId] AS [IndexForContactId], 
+    [pList].[StatusRecord] AS [StatusRecord], 
+    [pList].[Patterns_ID] AS [Patterns_ID], 
+    [pList].[ID_Number_List] AS [ID_Number_List], 
+    [pList].[weight] AS [weight], 
+    [pList].[delta_weight] AS [delta_weight], 
+    [pList].[AutoID] AS [AutoID]
+    FROM [dbo].[pList] AS [pList]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NSIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="OboznPos">
+          <Key>
+            <PropertyRef Name="idOPos" />
+          </Key>
+          <Property Name="idOPos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIP" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="IND" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="PICH" Type="String" MaxLength="39" FixedLength="false" Unicode="true" />
+          <Property Name="CHZ" Type="Int32" />
+          <Property Name="PICHN" Type="String" MaxLength="39" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OpPos">
+          <Key>
+            <PropertyRef Name="idPos" />
+          </Key>
+          <Property Name="idPos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIP" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="IND" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="PICH" Type="String" MaxLength="39" FixedLength="false" Unicode="true" />
+          <Property Name="ZO" Type="Int32" />
+          <Property Name="CHZ" Type="Int32" />
+          <Property Name="sumksk" Type="Double" />
+          <Property Name="KPRP" Type="Int32" />
+          <Property Name="KPRM" Type="Int32" />
+          <Property Name="PPK" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="TMC" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DImport" Type="DateTime" Precision="3" />
+          <Property Name="obozn" Type="String" MaxLength="39" FixedLength="false" Unicode="true" />
+          <Property Name="naim" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RP" Type="Double" />
+        </EntityType>
+        <EntityType Name="Zakaz">
+          <Key>
+            <PropertyRef Name="zakaz1" />
+          </Key>
+          <Property Name="zakaz1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NaimZak" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NumVPR" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PDivision">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Shedule" Type="Int32" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="PCompany_ID" Type="Int32" />
+          <Property Name="ID_Number_Division" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Owner_Division" Type="Int32" />
+          <Property Name="Patterns_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="pList">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MidName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="WorkPhone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="HomePhone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Company" Type="Int32" />
+          <Property Name="Section" Type="Int32" />
+          <Property Name="Post" Type="Int32" />
+          <Property Name="Schedule" Type="Int32" />
+          <Property Name="Avto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Spack" Type="Int32" />
+          <Property Name="Config" Type="Int32" />
+          <Property Name="TabNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GrStatus" Type="Int32" />
+          <Property Name="ChangeTime" Type="DateTime" Precision="3" />
+          <Property Name="IndexForContactId" Type="Int32" />
+          <Property Name="StatusRecord" Type="Int32" />
+          <Property Name="Patterns_ID" Type="Int32" />
+          <Property Name="ID_Number_List" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="weight" Type="Int32" />
+          <Property Name="delta_weight" Type="Int32" />
+          <Property Name="AutoID" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="NSIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="OboznPos" EntityType="Self.OboznPos" />
+          <EntitySet Name="OpPos" EntityType="Self.OpPos" />
+          <EntitySet Name="Zakaz" EntityType="Self.Zakaz" />
+          <EntitySet Name="PDivision" EntityType="Self.PDivision" />
+          <EntitySet Name="pList" EntityType="Self.pList" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NSIModelStoreContainer" CdmEntityContainer="NSIEntities">
+          <EntitySetMapping Name="OboznPos">
+            <EntityTypeMapping TypeName="NSIModel.OboznPos">
+              <MappingFragment StoreEntitySet="OboznPos">
+                <ScalarProperty Name="idOPos" ColumnName="idOPos" />
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+                <ScalarProperty Name="IND" ColumnName="IND" />
+                <ScalarProperty Name="PICH" ColumnName="PICH" />
+                <ScalarProperty Name="CHZ" ColumnName="CHZ" />
+                <ScalarProperty Name="PICHN" ColumnName="PICHN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OpPos">
+            <EntityTypeMapping TypeName="NSIModel.OpPos">
+              <MappingFragment StoreEntitySet="OpPos">
+                <ScalarProperty Name="idPos" ColumnName="idPos" />
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+                <ScalarProperty Name="IND" ColumnName="IND" />
+                <ScalarProperty Name="PICH" ColumnName="PICH" />
+                <ScalarProperty Name="ZO" ColumnName="ZO" />
+                <ScalarProperty Name="CHZ" ColumnName="CHZ" />
+                <ScalarProperty Name="sumksk" ColumnName="sumksk" />
+                <ScalarProperty Name="KPRP" ColumnName="KPRP" />
+                <ScalarProperty Name="KPRM" ColumnName="KPRM" />
+                <ScalarProperty Name="PPK" ColumnName="PPK" />
+                <ScalarProperty Name="TMC" ColumnName="TMC" />
+                <ScalarProperty Name="DImport" ColumnName="DImport" />
+                <ScalarProperty Name="obozn" ColumnName="obozn" />
+                <ScalarProperty Name="naim" ColumnName="naim" />
+                <ScalarProperty Name="RP" ColumnName="RP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zakaz">
+            <EntityTypeMapping TypeName="NSIModel.Zakaz">
+              <MappingFragment StoreEntitySet="Zakaz">
+                <ScalarProperty Name="zakaz1" ColumnName="zakaz" />
+                <ScalarProperty Name="NaimZak" ColumnName="NaimZak" />
+                <ScalarProperty Name="NumVPR" ColumnName="NumVPR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PDivision">
+            <EntityTypeMapping TypeName="NSIModel.PDivision">
+              <MappingFragment StoreEntitySet="PDivision">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Shedule" ColumnName="Shedule" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="PCompany_ID" ColumnName="PCompany_ID" />
+                <ScalarProperty Name="ID_Number_Division" ColumnName="ID_Number_Division" />
+                <ScalarProperty Name="ID_Owner_Division" ColumnName="ID_Owner_Division" />
+                <ScalarProperty Name="Patterns_ID" ColumnName="Patterns_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pList">
+            <EntityTypeMapping TypeName="NSIModel.pList">
+              <MappingFragment StoreEntitySet="pList">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MidName" ColumnName="MidName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+                <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="Schedule" ColumnName="Schedule" />
+                <ScalarProperty Name="Avto" ColumnName="Avto" />
+                <ScalarProperty Name="Spack" ColumnName="Spack" />
+                <ScalarProperty Name="Config" ColumnName="Config" />
+                <ScalarProperty Name="TabNumber" ColumnName="TabNumber" />
+                <ScalarProperty Name="GrStatus" ColumnName="GrStatus" />
+                <ScalarProperty Name="ChangeTime" ColumnName="ChangeTime" />
+                <ScalarProperty Name="IndexForContactId" ColumnName="IndexForContactId" />
+                <ScalarProperty Name="StatusRecord" ColumnName="StatusRecord" />
+                <ScalarProperty Name="Patterns_ID" ColumnName="Patterns_ID" />
+                <ScalarProperty Name="ID_Number_List" ColumnName="ID_Number_List" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="delta_weight" ColumnName="delta_weight" />
+                <ScalarProperty Name="AutoID" ColumnName="AutoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

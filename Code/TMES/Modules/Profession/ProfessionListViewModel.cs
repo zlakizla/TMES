@@ -170,8 +170,6 @@ namespace TMES.ViewModel
                 //DepartmentId = 1
             };
             Context.Professions.Add(CreatedItem);
-            UserContext.ChangedMade();
-  
             Context.SaveChanges();
         }
 
