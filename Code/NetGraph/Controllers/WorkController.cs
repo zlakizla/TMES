@@ -16,7 +16,7 @@ namespace NetGraph.Controllers
         [HttpGet]
         public ActionResult GetRootDetails(String Order, String Id)
         {
-            var SelectedWork = AppContext.FindByOrder(Order).RootWorks.FirstOrDefault(x => x.Id == Id);
+          //  var SelectedWork = AppContext.FindByOrder(Order).RootWorks.FirstOrDefault(x => x.Id == Id);
             var Model = new WorkViewModel(true);      
             return PartialView("GetWorkDetails", Model);
         }
@@ -24,7 +24,7 @@ namespace NetGraph.Controllers
         [HttpGet]
         public ActionResult GetDetails(String Order, String Id)
         {
-            var SelectedWork = AppContext.FindByOrder(Order).RootWorks.FirstOrDefault(x => x.Id == Id);
+            //var SelectedWork = AppContext.FindByOrder(Order).RootWorks.FirstOrDefault(x => x.Id == Id);
             var Model = new WorkViewModel(false);
             return PartialView("GetWorkDetails", Model);
         }

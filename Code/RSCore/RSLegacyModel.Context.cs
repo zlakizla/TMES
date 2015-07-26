@@ -23,6 +23,7 @@ namespace RSCore
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //throw new UnintentionalCodeFirstException();
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     
@@ -31,5 +32,6 @@ namespace RSCore
         public virtual DbSet<Zakaz> Zakaz { get; set; }
         public virtual DbSet<PDivision> PDivision { get; set; }
         public virtual DbSet<pList> pList { get; set; }
+        public virtual DbSet<ZakazVPR> ZakazVPR { get; set; }
     }
 }

@@ -37,6 +37,7 @@
       <HintPath>..\NetGraph\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -50,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\DepartmentRepository.cs" />
+    <Compile Include="Code\OrderRepository.cs" />
     <Compile Include="OboznPos.cs">
       <DependentUpon>RSLegacyModel.tt</DependentUpon>
     </Compile>
@@ -79,6 +81,9 @@
       <DependentUpon>RSLegacyModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Zakaz.cs">
+      <DependentUpon>RSLegacyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZakazVPR.cs">
       <DependentUpon>RSLegacyModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -116,6 +121,10 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{bcaef079-7224-4235-89b2-26db45f4659b}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{097b1345-9a8a-4e1b-ac8e-637214593dc0}</Project>
+      <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

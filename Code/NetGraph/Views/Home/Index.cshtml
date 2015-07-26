@@ -13,13 +13,20 @@
 
 
 <form id="myform" action="@Url.Action("Index","Home")" method="POST" >
-<span style="padding-right: 5px;">НОМЕР ЗАКАЗА</span><input id="Order" name="Order" value="@Model.Order" type="text" />
-
+<span style="padding-right: 5px;">НОМЕР ЗАКАЗА</span>
+<input id="Order" name="Order" value="@Model.RequestedOrderCode" type="text" />
+@if (Model.RequestedOrderCode != null && Model.Order == null)
+{
+    <span style="color: red">
+        Заказ не найден
+    </span>
+}
 <div class="HLButtonStatic" onclick="Build()">Построить</div>
 </form>
 
 </div>
 
+<!-- Temporary months displayer (coordinate X) -->
 <div style="clear: both;float:left">
 <div style="display: block; height: 30px; width: 120px; float: left"></div>
 <div style="display: block; height: 30px; width: 200px; float: left">Май</div>
@@ -30,7 +37,14 @@
 <div style="display: block; height: 30px; width: 20px; float: left">Октябрь</div>
 </div>
 <div  style="clear: both;" >
-    <span>Стандартная часть</span>
+    @foreach(var Department in Model.Departments)
+    {
+        <div class="DepartmentLine">
+            sd
+        </div>
+    }
+    
+    @*<span>Стандартная часть</span>
      @foreach (var Work in Model.CommonWorks)
     {
         <div class="DepartmentLine">
@@ -85,9 +99,9 @@
                 </div>
             </div>
         </div>
-    }
+    }*@
 </div>
-
+<!-- 
 <div style="clear: both; display: none;" class="draggable WorkDetail" title="Детализация работы">
     <div id="par5"  >
   
@@ -300,7 +314,7 @@
     </div>
 
 </div>
-
+-->
 <hr />
 
     

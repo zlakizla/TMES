@@ -45,7 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\IDepartmentsRepository.cs" />
+    <Compile Include="Code\IDepartmentRepository.cs" />
+    <Compile Include="Code\IOrderRepository.cs" />
     <Compile Include="Code\UserContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

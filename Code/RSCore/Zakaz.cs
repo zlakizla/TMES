@@ -15,8 +15,8 @@ namespace RSCore
     
     public partial class Zakaz
     {
-          [Key]
-        public string zakaz1 { get; set; }
+        [Key]
+        public string zakaz { get; set; }
         public string NaimZak { get; set; }
         public Nullable<int> NumVPR { get; set; }
     }

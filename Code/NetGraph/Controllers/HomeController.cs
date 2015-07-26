@@ -22,7 +22,7 @@ namespace NetGraph.Controllers
            // var bek = Context.Elements.Local;
             var model = new MainViewModel();
              
-            model.Order = Order;
+            model.RequestedOrderCode = Order;
             if (Order != null)
             {
                 model.Load();

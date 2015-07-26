@@ -5,12 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using AECSCore;
-
+using Utils;
+using System.Windows.Media;
 
 namespace RSCore
 {
     public class DepartmentRepository : IDepartmentRepository
     {
+
+
         public IEnumerable<Department> SelectAll()
         {
             
@@ -29,6 +32,8 @@ namespace RSCore
                     Result = new Department();
                     Result.Id = SearchResult.ID;
                     Result.ShortName = SearchResult.Name;
+                    Result.ColorCode = ColorHelper.Random().ToInt();
+                    
                 }
             }
             return Result;

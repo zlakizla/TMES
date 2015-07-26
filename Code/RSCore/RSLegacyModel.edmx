@@ -4,28 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="NSIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'NSI.dbo.MATNORM' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="MATNORM">
-          <Property Name="TIP" Type="nvarchar" MaxLength="1" />
-          <Property Name="IND" Type="nvarchar" MaxLength="4" />
-          <Property Name="PICH" Type="nvarchar" MaxLength="39" />
-          <Property Name="DATE" Type="datetime" />
-          <Property Name="SM" Type="nvarchar" MaxLength="11" />
-          <Property Name="C" Type="float" />
-          <Property Name="Y" Type="float" />
-          <Property Name="F" Type="float" />
-          <Property Name="NM" Type="float" />
-          <Property Name="NC" Type="float" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'NSI.dbo.NAPROF' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="NAPROF">
-          <Property Name="L" Type="nvarchar" MaxLength="3" />
-          <Property Name="PSP" Type="nvarchar" MaxLength="1" />
-          <Property Name="NAZVO" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
+    <Schema Namespace="NSIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="OboznPos">
           <Key>
             <PropertyRef Name="idOPos" />
@@ -37,14 +16,6 @@ warning 6013: The table/view 'NSI.dbo.NAPROF' does not have a primary key define
           <Property Name="CHZ" Type="int" />
           <Property Name="PICHN" Type="nvarchar" MaxLength="39" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'NSI.dbo.OpPlan' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="OpPlan">
-          <Property Name="idPos" Type="int" />
-          <Property Name="NS" Type="tinyint" />
-          <Property Name="SROK" Type="tinyint" />
-          <Property Name="KSK" Type="int" />
-        </EntityType>-->
         <EntityType Name="OpPos">
           <Key>
             <PropertyRef Name="idPos" />
@@ -120,45 +91,6 @@ warning 6002: The table/view 'NSI.dbo.pList' does not have a primary key defined
           <Property Name="delta_weight" Type="int" />
           <Property Name="AutoID" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'NSI.dbo.RCONST' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="RCONST">
-          <Property Name="IND1" Type="nvarchar" MaxLength="4" />
-          <Property Name="PICH1" Type="nvarchar" MaxLength="11" />
-          <Property Name="DATE" Type="datetime" />
-          <Property Name="TIP" Type="nvarchar" MaxLength="1" />
-          <Property Name="IND2" Type="nvarchar" MaxLength="4" />
-          <Property Name="PICH2" Type="nvarchar" MaxLength="47" />
-          <Property Name="NS" Type="float" />
-          <Property Name="KSP" Type="float" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'NSI.dbo.TEXNORM' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TEXNORM">
-          <Property Name="TIP" Type="nvarchar" MaxLength="1" />
-          <Property Name="IND" Type="nvarchar" MaxLength="4" />
-          <Property Name="PICH" Type="nvarchar" MaxLength="39" />
-          <Property Name="DATE" Type="datetime" />
-          <Property Name="C" Type="float" />
-          <Property Name="Y" Type="float" />
-          <Property Name="F" Type="float" />
-          <Property Name="SH" Type="float" />
-          <Property Name="SO" Type="float" />
-          <Property Name="KC" Type="float" />
-          <Property Name="KR" Type="float" />
-          <Property Name="VO" Type="float" />
-          <Property Name="TS" Type="float" />
-          <Property Name="KP" Type="float" />
-          <Property Name="TZ" Type="float" />
-          <Property Name="W" Type="float" />
-          <Property Name="L" Type="float" />
-          <Property Name="R" Type="float" />
-          <Property Name="E1" Type="float" />
-          <Property Name="E2" Type="float" />
-          <Property Name="NV" Type="float" />
-          <Property Name="T" Type="float" />
-          <Property Name="obozn" Type="nvarchar" MaxLength="39" />
-        </EntityType>-->
         <EntityType Name="Zakaz">
           <Key>
             <PropertyRef Name="zakaz" />
@@ -169,8 +101,12 @@ warning 6013: The table/view 'NSI.dbo.TEXNORM' does not have a primary key defin
         </EntityType>
         <!--Errors Found During Generation:
 warning 6013: The table/view 'NSI.dbo.ZakazVPR' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ZakazVPR">
-          <Property Name="Z" Type="nvarchar" MaxLength="8" />
+       -->
+	   <EntityType Name="ZakazVPR">
+		   <Key>
+			   <PropertyRef Name="Z" />
+		   </Key>
+          <Property Name="Z" Type="nvarchar" MaxLength="8"  Nullable="false" />
           <Property Name="D" Type="datetime" />
           <Property Name="PTP" Type="nvarchar" MaxLength="5" />
           <Property Name="T_KU" Type="nvarchar" MaxLength="4" />
@@ -181,13 +117,14 @@ warning 6013: The table/view 'NSI.dbo.ZakazVPR' does not have a primary key defi
           <Property Name="OBOZN_CH" Type="nvarchar" MaxLength="13" />
           <Property Name="KSP" Type="float" />
           <Property Name="id" Type="nvarchar" MaxLength="100" />
-        </EntityType>-->
+        </EntityType>
         <EntityContainer Name="NSIModelStoreContainer">
           <EntitySet Name="OboznPos" EntityType="Self.OboznPos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OpPos" EntityType="Self.OpPos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zakaz" EntityType="Self.Zakaz" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PDivision" EntityType="Self.PDivision" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
+
+			  <DefiningQuery>SELECT 
     [PDivision].[ID] AS [ID], 
     [PDivision].[Name] AS [Name], 
     [PDivision].[Description] AS [Description], 
@@ -231,9 +168,11 @@ warning 6013: The table/view 'NSI.dbo.ZakazVPR' does not have a primary key defi
     [pList].[AutoID] AS [AutoID]
     FROM [dbo].[pList] AS [pList]</DefiningQuery>
           </EntitySet>
+			<EntitySet Name="ZakazVPR" EntityType="Self.ZakazVPR" Schema="dbo" store:Type="Tables"  >
+				
+			</EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NSIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -327,14 +266,33 @@ warning 6013: The table/view 'NSI.dbo.ZakazVPR' does not have a primary key defi
           <Property Name="delta_weight" Type="Int32" />
           <Property Name="AutoID" Type="Int32" />
         </EntityType>
+		<EntityType Name="ZakazVPR">
+			<Key>
+				<PropertyRef Name="Z" />
+			</Key>
+			<Property Name="Z" Type="String" MaxLength="8"  Nullable="false" />
+			<Property Name="D" Type="DateTime" />
+			<Property Name="PTP" Type="String" MaxLength="5" />
+			<Property Name="T_KU" Type="String" MaxLength="4" />
+			<Property Name="IND_KU" Type="String" MaxLength="8" />
+			<Property Name="OBOZN_KU" Type="String" MaxLength="14" />
+			<Property Name="T_CH" Type="String" MaxLength="3" />
+			<Property Name="IND_CH" Type="String" MaxLength="6" />
+			<Property Name="OBOZN_CH" Type="String" MaxLength="13" />
+			<Property Name="KSP" Type="Double" />
+			<Property Name="id" Type="String" MaxLength="100" />
+		</EntityType>
         <EntityContainer Name="NSIEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="OboznPos" EntityType="Self.OboznPos" />
           <EntitySet Name="OpPos" EntityType="Self.OpPos" />
           <EntitySet Name="Zakaz" EntityType="Self.Zakaz" />
           <EntitySet Name="PDivision" EntityType="Self.PDivision" />
           <EntitySet Name="pList" EntityType="Self.pList" />
+		  <EntitySet Name="ZakazVPR" EntityType="Self.ZakazVPR" />
+
+		
         </EntityContainer>
-      </Schema>
+       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -431,6 +389,26 @@ warning 6013: The table/view 'NSI.dbo.ZakazVPR' does not have a primary key defi
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+		  <EntitySetMapping Name="ZakazVPR">
+			  <EntityTypeMapping TypeName="NSIModel.ZakazVPR">
+				  <MappingFragment StoreEntitySet="ZakazVPR">
+					  <ScalarProperty Name="Z" ColumnName="Z" />
+					  <ScalarProperty Name="D" ColumnName="D" />
+					  <ScalarProperty Name="PTP" ColumnName="PTP" />
+		
+					  <ScalarProperty Name="T_KU" ColumnName="T_KU" />
+					  <ScalarProperty Name="IND_KU" ColumnName="IND_KU" />
+					  <ScalarProperty Name="OBOZN_KU" ColumnName="OBOZN_KU" />
+					  <ScalarProperty Name="T_CH" ColumnName="T_CH" />
+					  <ScalarProperty Name="IND_CH" ColumnName="IND_CH" />
+					  <ScalarProperty Name="OBOZN_CH" ColumnName="OBOZN_CH" />
+					  <ScalarProperty Name="KSP" ColumnName="KSP" />
+					  <ScalarProperty Name="id" ColumnName="id" />
+	
+				  </MappingFragment>
+			  </EntityTypeMapping>
+			  
+	     </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -446,7 +424,7 @@ warning 6013: The table/view 'NSI.dbo.ZakazVPR' does not have a primary key defi
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

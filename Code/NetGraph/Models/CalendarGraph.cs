@@ -3,15 +3,13 @@
 using System.Collections.Generic;
 using System;
 using System.Data.SqlClient;
+using AECSCore;
 public class CalendarGraph
 {
     #region Properties
 
-    /// <summary>
-    /// Номер заказа, для которого строится календарный график
-    /// </summary>
-    private String _order;
-    public String Order
+    private Order _order;
+    public Order Order
     {
         get
         {
@@ -24,7 +22,7 @@ public class CalendarGraph
     }
 
     /// <summary>
-    /// Корневые работы календарного графика
+    /// Zero-level works 
     /// </summary>
     private List<Work> _rootWorks;
     public List<Work> RootWorks
@@ -41,7 +39,7 @@ public class CalendarGraph
         {
             _rootWorks = value;
         }
-        
+
     }
 
     private List<Element> _elements;
@@ -60,18 +58,18 @@ public class CalendarGraph
             _elements = value;
         }
     }
-    
+
 
     #endregion Properties
 
     #region Constructor
 
-    public CalendarGraph(String Order)
+    public CalendarGraph(Order Order)
     {
         this.Order = Order;
 
-        OrderExplode();
-        CacheExpandResults();
+       /// OrderExplode();
+      ///  CacheExpandResults();
     }
 
     #endregion Constructor
@@ -85,25 +83,25 @@ public class CalendarGraph
     public List<Work> GetRoot()
     {
         var Result = new List<Work>();
-        var StandartWorks = GetStandartWorks();
-        var PreparationWorks = GetPreparationWorks();
-        var MainWorks = GetMainWorks();
+        //var StandartWorks = GetStandartWorks();
+        //var PreparationWorks = GetPreparationWorks();
+        //var MainWorks = GetMainWorks();
 
-        for (int i = 0; i < StandartWorks.Count; i++)
-        {
-            Result.Add(StandartWorks[i]);
-        }
+        //for (int i = 0; i < StandartWorks.Count; i++)
+        //{
+        //    Result.Add(StandartWorks[i]);
+        //}
 
-        for (int i = 0; i < PreparationWorks.Count; i++)
-        {
-            Result.Add(PreparationWorks[i]);
-        }
+        //for (int i = 0; i < PreparationWorks.Count; i++)
+        //{
+        //    Result.Add(PreparationWorks[i]);
+        //}
 
-        for (int i = 0; i < MainWorks.Count; i++)
-        {
-            Result.Add(MainWorks[i]);
-        }
-        RootWorks = Result;
+        //for (int i = 0; i < MainWorks.Count; i++)
+        //{
+        //    Result.Add(MainWorks[i]);
+        //}
+        //RootWorks = Result;
         return Result;
 
     }
@@ -120,35 +118,35 @@ public class CalendarGraph
     /// </summary>
     private void CacheExpandResults()
     {
-//        using (var Cmd = new SqlCommand("", DBManager.MainConn))
-//        {
-//            Cmd.CommandText = @"
-//                                TRUNCATE TABLE ConstDocs.dbo.NetGraphExplode;
-//                                INSERT INTO ConstDocs.dbo.NetGraphExplode
-//                                SELECT 
-//		                                TIP,
-//		                                IND1,
-//		                                PICH,
-//		                                IND2,
-//		                                P2NI,
-//		                                Z,
-//		                                NS,
-//		                                KSP,
-//		                                KSZ,
-//		                                Depth,
-//		                                id,
-//		                                Parent,
-//                                        IND1 + PICH AS Obozn
-//                                 FROM ConstDocs.dbo.tempPOSPRIMB 
-//                                WHERE id LIKE 'Branch%';
-//                                CREATE INDEX Obozn ON ConstDocs.dbo.NetGraphExplode
-//                                (Obozn)
-//                                WITH DROP_EXISTING ;
-//                                CREATE INDEX INDnPICH ON ConstDocs.dbo.NetGraphExplode
-//	                            (IND1)
-//	                            WITH DROP_EXISTING ;";
-//            Cmd.ExecuteNonQuery();
-//        }
+        //        using (var Cmd = new SqlCommand("", DBManager.MainConn))
+        //        {
+        //            Cmd.CommandText = @"
+        //                                TRUNCATE TABLE ConstDocs.dbo.NetGraphExplode;
+        //                                INSERT INTO ConstDocs.dbo.NetGraphExplode
+        //                                SELECT 
+        //		                                TIP,
+        //		                                IND1,
+        //		                                PICH,
+        //		                                IND2,
+        //		                                P2NI,
+        //		                                Z,
+        //		                                NS,
+        //		                                KSP,
+        //		                                KSZ,
+        //		                                Depth,
+        //		                                id,
+        //		                                Parent,
+        //                                        IND1 + PICH AS Obozn
+        //                                 FROM ConstDocs.dbo.tempPOSPRIMB 
+        //                                WHERE id LIKE 'Branch%';
+        //                                CREATE INDEX Obozn ON ConstDocs.dbo.NetGraphExplode
+        //                                (Obozn)
+        //                                WITH DROP_EXISTING ;
+        //                                CREATE INDEX INDnPICH ON ConstDocs.dbo.NetGraphExplode
+        //	                            (IND1)
+        //	                            WITH DROP_EXISTING ;";
+        //            Cmd.ExecuteNonQuery();
+        //        }
     }
 
     /// <summary>
@@ -169,26 +167,26 @@ public class CalendarGraph
     {
         var Result = new List<Work>();
 
-        using (var Cmd = new SqlCommand("", DBManager.MainConn))
-        {
-            Cmd.CommandText = @"  SELECT c,z,SUM(NV) as Duration
-                              FROM [ConstDocs].[dbo].[BlocksByOperation]
-                              WHERE C IN (1,2,3,5,8,12,38,44)
-                              GROUP BY  c,z
-                              ORDER BY C ASC
-                            "; //WHERE id LIKE 'Branch%' AND C IN (1,2,3,5,8,12,38,44)
-            using (SqlDataReader dr = Cmd.ExecuteReader())
-            {
-                while(dr.Read())
-                {
-                    var Duration = Convert.ToDouble(dr["Duration"]);
-                    var ShortName = dr["C"].ToString();
-                    var TargetDepartment = Department.GetByShortName(ShortName);
-                    var Work = new Work(Duration, -1, -1, TargetDepartment);
-                    Result.Add(Work); 
-                }
-            }
-        }
+//        using (var Cmd = new SqlCommand("", DBManager.MainConn))
+//        {
+//            Cmd.CommandText = @"  SELECT c,z,SUM(NV) as Duration
+//                              FROM [ConstDocs].[dbo].[BlocksByOperation]
+//                              WHERE C IN (1,2,3,5,8,12,38,44)
+//                              GROUP BY  c,z
+//                              ORDER BY C ASC
+//                            "; //WHERE id LIKE 'Branch%' AND C IN (1,2,3,5,8,12,38,44)
+//            using (SqlDataReader dr = Cmd.ExecuteReader())
+//            {
+//                while (dr.Read())
+//                {
+//                    var Duration = Convert.ToDouble(dr["Duration"]);
+//                    var ShortName = dr["C"].ToString();
+//                    //  var TargetDepartment = Department.GetByShortName(ShortName);
+//                    //   var Work = new Work(Duration, -1, -1, TargetDepartment);
+//                    //  Result.Add(Work); 
+//                }
+//            }
+//        }
         return Result;
     }
 
@@ -204,10 +202,10 @@ public class CalendarGraph
 
     private void OrderExplode()
     {
-        var RequestedOrder = new Exploder(Order);
-        RequestedOrder.ClearPreviousExplosion("Branch");
-        RequestedOrder.Explode();
-        Elements = RequestedOrder.Elements;
+        //var RequestedOrder = new Exploder(Order);
+        //RequestedOrder.ClearPreviousExplosion("Branch");
+        //RequestedOrder.Explode();
+        //Elements = RequestedOrder.Elements;
     }
 
 

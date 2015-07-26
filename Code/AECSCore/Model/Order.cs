@@ -8,6 +8,10 @@ namespace AECSCore
 {
     public class Order
     {
+
+        public Int32 Id { get; set; }
+        public String Code { get; set; }
+
         public String Name { get; set; }
 
         private ObservableCollection<Element> _content;
