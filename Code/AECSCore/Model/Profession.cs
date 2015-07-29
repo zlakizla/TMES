@@ -132,21 +132,41 @@ namespace AECSCore
 
         #region Methods
 
-        //public static Profession GetAllProfession(Int32 Code)
-        //{
-        //    Profession Result;
+        public static Profession GetAllProfession(Int32 Code)
+        {
+            Profession Result;
 
-        //    var Profession= AllProfessions.FirstOrDefault(x => x.Code == Code);
-        //    if (Profession != null)
-        //    {
-        //Result= new Profession(Profession.Id,Profession.Code,Profession.Name/*, Profession.AltName*/, Profession.ShortName /*, Profession.AltShortName*/);        
-        //    }
-        //    else
-        //    {
-        //        Result= new Profession();
-        //    }
-        //    return Result;
-        //}
+            var Profession = AllProfessions.FirstOrDefault(x => x.Code == Code);
+            if (Profession != null)
+            {
+                Result = new Profession(Profession.Id, Profession.Code, Profession.Name, Profession.ShortName);
+            }
+            else
+            {
+                Result = new Profession();
+            }
+            return Result;
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
+        public override bool Equals(object obj)
+        {
+            //return base.Equals(obj);
+            if (obj is Profession)
+            {
+                var Right = obj as Profession;
+                if (Id == Right.Id)
+                {
+                    return true;
+                }
+            }
+            return false;
+
+        }
 
         #endregion Methods
 

@@ -82,10 +82,15 @@
 
                     <TextBlock Grid.Row="4" Grid.Column="0" Text="Должность" 
                                Style="{StaticResource FormLabel}" />
-                    <TextBox Grid.Row="4" Grid.Column="1"
+                    <!--<TextBox Grid.Row="4" Grid.Column="1"
                                     Style="{StaticResource FormTextBox}"
-                                    Text="{Binding SelectedItem.Title, Mode=TwoWay}" />
-
+                                    Text="{Binding SelectedItem.Title, Mode=TwoWay}" />-->
+                        <ComboBox Grid.Row="4"
+                                  Grid.Column="1"
+                                  Style="{StaticResource FormComboBox}" 
+                                  ItemsSource="{Binding Professions , Mode=OneWay}"
+                                  SelectedItem="{Binding SelectedProfession, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+          />
                     </Grid>
                           
                 </Grid>

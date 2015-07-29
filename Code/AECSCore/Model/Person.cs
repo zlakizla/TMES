@@ -27,6 +27,20 @@ namespace AECSCore
         public String Title { get; set; }
 
         public Int32? DepartmentId  { get; set; }
+        public Int32? ProfessionId { get; set; }
+        private Profession _profession;
+        public virtual Profession Profession
+        {
+            get
+            {
+                return _profession;
+            }
+            set
+            {
+                _profession = value;
+                ProfessionId = value.Id;
+            }
+        }
         private Department _department;
         [ForeignKey("DepartmentdId")]
         public virtual Department Department
@@ -62,6 +76,8 @@ namespace AECSCore
             this.Title = Source.Title;
             this.LastName = Source.LastName;     
             this.DepartmentId = Source.DepartmentId;
+            Profession = Source.Profession;
         }
+
     }
 }

@@ -68,6 +68,27 @@ namespace TMES.ViewModel
                 _departments = value;
             }
         }
+        private IEnumerable<Profession> _professions;
+        public IEnumerable<Profession> Professions
+        {
+            get
+            {
+                if (_professions == null)
+                {
+                    using (var Context = UserContext.GetInstance())
+                    {
+
+                        _professions = Context.Professions.ToList();
+                    }
+                    return _professions;
+                }
+                return _professions;
+            }
+            set
+            {
+                _professions = value;
+            }
+        }
 
         private List<Department> _testList;
         public List<Department> TestList

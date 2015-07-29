@@ -8,6 +8,7 @@
         <Setter Property="Foreground" Value="#FFDDDDDD" />
         <Setter Property="MinWidth" Value="100" />
         <Setter Property="Margin" Value="0,15,0,0" />
+        <Setter Property="CaretBrush" Value="White"/>
         
     </Style>
     
