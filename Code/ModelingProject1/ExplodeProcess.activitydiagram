@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="9157b1cd-d93b-4a4c-a937-bc6a24500397" name="ExplodeProcess" linkedPackageId="9825a6b8-7284-41da-b6c7-46b0aea79f00" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="30e775db-819d-4c5b-80eb-936fa0e94111">
+      <profileInstance Id="af7921ea-b86d-42f4-b71a-36b239ccfdb9" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="de358e9d-a7ff-46da-aaa3-3f96c95c8e00">
+      <profileInstance Id="8a8879da-b7cf-4f9d-ad33-aa4bf193d8f8" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="5aa09d0f-2f19-41df-a099-5558c9b7797a" name="ExplodeProcess" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="dcd3c029-e826-4f32-95f1-f6c4c48af9ce" />
+        <nodes>
+          <initialNode Id="a5ef9f4c-7d8b-4eb8-9aa4-6af70bec8a8b" name="Initial1" isLeaf="false">
+            <elementDefinition Id="b8fa9b5e-94a9-4076-9c7a-e6f8721dd7df" />
+          </initialNode>
+          <opaqueAction Id="6182fdb4-36eb-40f1-baab-68b5cdb82944" name="Explode" isLeaf="false">
+            <elementDefinition Id="a1f580ad-1ae7-4125-bb49-141977a5e964" />
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="9825a6b8-7284-41da-b6c7-46b0aea79f00" name="ModelingProject1">
+    <elementDefinition Id="799f2626-df06-4256-a748-cc06ece87664" />
+  </package>
+</activityRootModel>

@@ -10,6 +10,5 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("testdb.mdf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("testdb_log.ldf")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("themes/icons/profession.png")]
 
 

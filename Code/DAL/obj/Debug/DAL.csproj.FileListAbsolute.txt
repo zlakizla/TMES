@@ -32,9 +32,7 @@ E:\Projects\Projects\Radiosvyaz\DAL\obj\Debug\DAL.pdb
 C:\Users\Dergachev\Documents\GitHub\TMES\Code\DAL\bin\Debug\DAL.dll
 C:\Users\Dergachev\Documents\GitHub\TMES\Code\DAL\bin\Debug\DAL.pdb
 C:\Users\Dergachev\Documents\GitHub\TMES\Code\DAL\bin\Debug\AECSCore.dll
-C:\Users\Dergachev\Documents\GitHub\TMES\Code\DAL\bin\Debug\Utils.dll
 C:\Users\Dergachev\Documents\GitHub\TMES\Code\DAL\bin\Debug\AECSCore.pdb
-C:\Users\Dergachev\Documents\GitHub\TMES\Code\DAL\bin\Debug\Utils.pdb
 C:\Users\Dergachev\Documents\GitHub\TMES\Code\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Dergachev\Documents\GitHub\TMES\Code\DAL\obj\Debug\DAL.dll
 C:\Users\Dergachev\Documents\GitHub\TMES\Code\DAL\obj\Debug\DAL.pdb

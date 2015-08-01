@@ -1,0 +1,16 @@
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\bin\Debug\RSCore.dll.config
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\bin\Debug\RSCore.dll
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\bin\Debug\RSCore.pdb
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\bin\Debug\EntityFramework.dll
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\bin\Debug\EntityFramework.xml
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\obj\Debug\RSCore.csprojResolveAssemblyReference.cache
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\obj\Debug\RSCore.dll
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\obj\Debug\RSCore.pdb
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\bin\Debug\AECSCore.dll
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\bin\Debug\DAL.dll
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\bin\Debug\Utils.dll
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\bin\Debug\AECSCore.pdb
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\bin\Debug\DAL.pdb
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\RSCore\bin\Debug\Utils.pdb
