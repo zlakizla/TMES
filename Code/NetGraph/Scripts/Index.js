@@ -6,24 +6,73 @@
 
 $(function ()
 {
+ 
+    $('#ExploderTable tbody tr').live('click',
+     function ()
+     {
+         var Id = $(this).find('.Id').html();
+         var Index = $(this).find('.Index').html();
+         var Denotation = $(this).find('.Denotation').html();
+         var Depth = $(this).find('.Depth').html();
+         
+         $.ajax({
+             url: 'Home/Test1/',
+             type: 'GET',
+             cache: false,
+             data:
+                {
+               
+                    Index: Index,
+                    Denotation: Denotation,
+                    Depth: Depth
+             },
+             success: function (result) {
+                 $('.NavigatorExploder').html(result);
+             },
+             error: function(e1,e2,e3)
+             {
+            
+             }
+         });
+
+     });
+
+
+
     WorksRender();
     WorksBehaviour();
     WorkDetailIni();
+
+ 
 });
 var Work;
 var ActualWork;
+
+function ShortColor(Color)
+{
+    var pek = '';
+    for (var i = 0; i < 9 ; i++)
+    {
+        if(i != 1 && i != 2)
+        {
+            pek += Color[i];
+        }
+    }
+    return pek;
+}
 function WorksRender()
 {
     ActualWork = $('.ActualWork');
     Work = $('.Work');
     var MaxDuration = 0;
     var MaxLength = 900;
-    var MinLength = 10;
+    var MinLength = 100;
     for (var i = 0; i < Work.length; i++)
     {
         Work[i].Duration = parseFloat($(Work[i]).find('.Duration').val().replace(',', '.'));
         Work[i].Color = $(Work[i]).find('.Color').val();
-        $(Work[i]).css("background-color", Work[i].Color);
+       
+        $(Work[i]).css({ "background-color": ShortColor(Work[i].Color) });
 
         if(MaxDuration < Work[i].Duration)
         {
@@ -114,3 +163,4 @@ function Refresh()
 
   //  $("#par").load('@Html.Partial("WorkDetail", new NetGraph.ViewModels.WorkDetailViewModel())');
 }
+

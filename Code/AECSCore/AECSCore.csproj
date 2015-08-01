@@ -49,6 +49,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IExplodable.cs" />
+    <Compile Include="Interface\IExploder.cs" />
     <Compile Include="Model\Department.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Machine.cs" />

@@ -8,6 +8,7 @@ using AECSCore;
 
 namespace RSCore
 {
+
     public class OrderRepository : IOrderRepository
     {
         public IEnumerable<Order> SelectAll()
@@ -30,9 +31,29 @@ namespace RSCore
                 {
                     Result = new Order();
                     Result.Code = Code;
-                    Result.Name = SearchResult.NaimZak;
+                    Result.Name = SearchResult.NaimZak;                
                 }
+
+                // PTP = "00" - planned, "02" - unplanned
+                IEnumerable<ZakazVPR> Content = Context.ZakazVPR.
+                                                Where(x => x.Z == Code
+                                                 && x.PTP == "00").ToList();
+                foreach(var Record in Content)
+                {
+           
+                    var Element = new Element()
+                    {
+             
+                        Type = ElementType.Block,
+                        Index = Record.IND_CH,
+                        Denotation = Record.OBOZN_CH,
+                        Amount = Record.KSP ?? 1
+                    };
+                    Result.Content.Add(Element);
+                }
+
             }
+
             return Result;
         }
 

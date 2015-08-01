@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\IDepartmentRepository.cs" />
+    <Compile Include="Code\IElementRepository.cs" />
+    <Compile Include="Code\IExploderResultRepository.cs" />
     <Compile Include="Code\IOrderRepository.cs" />
     <Compile Include="Code\UserContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

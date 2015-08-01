@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace AECSCore
@@ -25,7 +26,7 @@ namespace AECSCore
     /// <summary>
     /// PODO : Базовые класс для заводских позиций, состоящий из типа (T), индекса (IND) и обозначения (PICH)
     /// </summary>
-    public class Element
+    public class Element : Item, IExplodable
     {
         #region Constants
 
@@ -110,10 +111,7 @@ namespace AECSCore
             }
         }
 
-        private ElementType _type;
-        /// <summary>
-        /// Тип
-        /// </summary>
+        private ElementType _type; 
         public ElementType Type
         {
             get
@@ -125,6 +123,39 @@ namespace AECSCore
                 _type = value;
             }
         }
+
+        private ICollection<Element> _content;
+        public ICollection<Element> Content
+        {
+            get
+            {
+                if(_content == null)
+                {
+                    _content = new List<Element>();
+                }
+                return _content;
+            }
+            set
+            {
+                _content = value;
+            }
+        }
+
+        public Element Parent
+        {
+            get;
+            set;
+        }
+
+        public Int32 Depth { get; set; }
+
+        public void Explode(IExploder Exploder)
+        {
+            Exploder.Explode(this);
+        }
+
+
+
         #endregion Properties
 
         #region Constructor
@@ -153,5 +184,28 @@ namespace AECSCore
         }
 
         #endregion Constructor
+
+        public override String ToString()
+        {
+            if(Index == "0000" && Denotation == "00000000000")
+            {
+                return "Root";
+            }
+            else
+            {
+                return Index + Denotation;
+            }
+        }
+
+        public static Element Root()
+        {
+            var Result = new Element();
+            Result.Index = "0000";
+            Result.Denotation = "00000000000";
+            Result.Depth = -1;
+
+            return Result;
+        }
+     
     }
 }

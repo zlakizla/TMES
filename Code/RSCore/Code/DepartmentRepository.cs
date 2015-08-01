@@ -16,8 +16,25 @@ namespace RSCore
 
         public IEnumerable<Department> SelectAll()
         {
-            
-            throw new NotImplementedException();   
+
+            List<Department> Result = new List<Department>();
+            using (var Context = new ConstDocsEntities())
+            {
+
+                var SearchResult = Context.RootWorks;
+                foreach(var Row in SearchResult)
+                {
+                    Department Department = new Department();
+                    Department.ShortName = Row.C.ToString();
+                    Department.Name = Row.C.ToString();
+                    Department.Duration = Row.Duration ?? 0;
+                    Department.Color = ColorHelper.Random((int)Row.C);
+                 //   Department.ColorCode = Department.Color.ToInt();
+                    Result.Add(Department);
+                }
+               
+            }
+            return Result; 
         }
 
         public Department SelectById(Int32 Id)
@@ -32,7 +49,7 @@ namespace RSCore
                     Result = new Department();
                     Result.Id = SearchResult.ID;
                     Result.ShortName = SearchResult.Name;
-                    Result.ColorCode = ColorHelper.Random().ToInt();
+                    //Result.ColorCode = ColorHelper.Random().ToInt();
                     
                 }
             }

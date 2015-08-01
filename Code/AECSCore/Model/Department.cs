@@ -59,11 +59,12 @@ namespace AECSCore
             get
             {
                 
-                return ColorHelper.FromInt(ColorCode);
+                return  _color; //ColorHelper.FromInt(ColorCode);
             }
             set
             {
-                ColorCode = value.ToInt();               
+                _color = value;
+                //ColorCode = value.ToInt();               
             }
         }
 
@@ -74,6 +75,9 @@ namespace AECSCore
                 return new SolidColorBrush(Color);
             }
         }
+
+        /// MOCK
+        public Double Duration { get; set; }
         public Boolean IsDeleted { get; set; }
 
         public Int32 _colorCode;

@@ -20,7 +20,17 @@ namespace Utils
 
             var ARBG = new Byte[] { Color.B, Color.G, Color.R, Color.A };
             var Result = BitConverter.ToInt32(ARBG, 0);
-  
+          
+            return Result;
+        }
+
+        public static Color Random(Int32 Seed)
+        {
+            var Generator = new System.Random(Seed);
+            Byte ColorB = (byte)Generator.Next(0, 255);
+            Byte ColorG = (byte)Generator.Next(0, 255);
+            Byte ColorR = (byte)Generator.Next(0, 255);
+            var Result = Color.FromArgb(0,  ColorR, ColorG, ColorB);
             return Result;
         }
 

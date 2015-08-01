@@ -87,25 +87,6 @@
 }
 
 
-.MinorTable 
-{
-    white-space:  nowrap;
-  
-    border-collapse: collapse;
-}
-
-.MinorTable thead td
-{
-
-    padding-left: 10px;
-}
-.MinorTable tbody td
-{
-      background-color: #3d3d3d;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid black;
-}
 
 .path 
 {
@@ -145,3 +126,4 @@
             border-bottom: 4px solid #2a2a2c;
     white-space: nowrap;
 }
+

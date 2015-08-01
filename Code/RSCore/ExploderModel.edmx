@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ConstDocsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tempPOSPRIMB">
+          <Key>
+            <PropertyRef Name="id_record" />
+          </Key>
+          <Property Name="id_record" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIP" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="IND1" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="PICH" Type="nvarchar" MaxLength="47" Nullable="false" />
+          <Property Name="IND2" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="P2NI" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Z" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="NS" Type="int" />
+          <Property Name="KSP" Type="float" />
+          <Property Name="KSZ" Type="float" />
+          <Property Name="Depth" Type="int" Nullable="false" />
+          <Property Name="id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Parent" Type="int" Nullable="false" />
+        </EntityType>
+       <EntityType Name="RootWorks">
+		   <Key>
+			   <PropertyRef Name="C" />
+		   </Key>
+          <Property Name="C" Type="float" Nullable="false" /> 
+          <Property Name="Duration" Type="float" />
+        </EntityType>
+        <EntityContainer Name="ConstDocsModelStoreContainer">
+          <EntitySet Name="tempPOSPRIMB" EntityType="Self.tempPOSPRIMB" Schema="dbo" store:Type="Tables" />
+		  <EntitySet Name="RootWorks" EntityType="Self.RootWorks" Schema="dbo" store:Type="Tables" />
+
+		</EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConstDocsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tempPOSPRIMB">
+          <Key>
+            <PropertyRef Name="id_record" />
+          </Key>
+          <Property Name="id_record" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIP" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IND1" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PICH" Type="String" MaxLength="47" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IND2" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="P2NI" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Z" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NS" Type="Int32" />
+          <Property Name="KSP" Type="Double" />
+          <Property Name="KSZ" Type="Double" />
+          <Property Name="Depth" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Parent" Type="Int32" Nullable="false" />
+        </EntityType>
+		  <EntityType Name="RootWorks">
+			  <Key>
+				  <PropertyRef Name="C" />
+			  </Key>
+			  <Property Name="C" Type="Double" Nullable="false" />
+			  <Property Name="Duration" Type="Double" />
+		  </EntityType>
+
+		  <EntityContainer Name="ConstDocsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tempPOSPRIMB" EntityType="Self.tempPOSPRIMB" />
+			<EntitySet Name="RootWorks" EntityType="Self.RootWorks" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ConstDocsModelStoreContainer" CdmEntityContainer="ConstDocsEntities">
+          <EntitySetMapping Name="tempPOSPRIMB">
+            <EntityTypeMapping TypeName="ConstDocsModel.tempPOSPRIMB">
+              <MappingFragment StoreEntitySet="tempPOSPRIMB">
+                <ScalarProperty Name="id_record" ColumnName="id_record" />
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+                <ScalarProperty Name="IND1" ColumnName="IND1" />
+                <ScalarProperty Name="PICH" ColumnName="PICH" />
+                <ScalarProperty Name="IND2" ColumnName="IND2" />
+                <ScalarProperty Name="P2NI" ColumnName="P2NI" />
+                <ScalarProperty Name="Z" ColumnName="Z" />
+                <ScalarProperty Name="NS" ColumnName="NS" />
+                <ScalarProperty Name="KSP" ColumnName="KSP" />
+                <ScalarProperty Name="KSZ" ColumnName="KSZ" />
+                <ScalarProperty Name="Depth" ColumnName="Depth" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+			<EntitySetMapping Name="RootWorks">
+				<EntityTypeMapping TypeName="ConstDocsModel.RootWorks">
+					<MappingFragment StoreEntitySet="RootWorks">
+						<ScalarProperty Name="C" ColumnName="C" />
+						<ScalarProperty Name="Duration" ColumnName="Duration" />
+	
+					</MappingFragment>
+				</EntityTypeMapping>
+			</EntitySetMapping>
+
+		</EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

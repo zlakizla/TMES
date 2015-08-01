@@ -123,21 +123,25 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ExploderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WorkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CalendarGraph.cs" />
-    <Compile Include="Models\Element.cs" />
+    <Compile Include="Models\ElementExploder.cs" />
     <Compile Include="Models\Exploder.cs" />
+    <Compile Include="Models\OrderExploder.cs" />
     <Compile Include="Models\Work.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ExploderViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\WorkViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\DisableJQueryTheme.css" />
+    <Content Include="Content\Navigator.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -195,8 +199,10 @@
     <Content Include="Content\themes\ui-darkSharp\logo.png" />
     <Content Include="Content\themes\ui-darkSharp\Main.css" />
     <Content Include="Content\themes\ui-darkSharp\Menu.css" />
+    <Content Include="Content\themes\ui-darkSharp\Table.css" />
     <Content Include="Content\themes\ui-darkSharp\ToolsCatalog.css" />
     <Content Include="Content\themes\ui-darkSharp\ToolsMovement.css" />
+    <Content Include="Content\WorksRender.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\ui-darkSharp\logo.psd" />
@@ -234,6 +240,7 @@
     <Content Include="Views\Shared\MainWorksDetailsView.cshtml" />
     <Content Include="Views\Work\GetWorkDetails.cshtml" />
     <Content Include="Views\Work\Index.cshtml" />
+    <Content Include="Views\Exploder\Exploder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

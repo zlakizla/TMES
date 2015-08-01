@@ -92,3 +92,10 @@ C:\Users\Dergachev\Documents\GitHub\TMES\Code\NetGraph\bin\System.Web.WebPages.x
 C:\Users\Dergachev\Documents\GitHub\TMES\Code\NetGraph\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Dergachev\Documents\GitHub\TMES\Code\NetGraph\bin\System.Web.WebPages.Razor.xml
 C:\Users\Dergachev\Documents\GitHub\TMES\Code\NetGraph\obj\Debug\NetGraph.pdb
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\NetGraph\bin\RSCore.dll
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\NetGraph\bin\RSCore.pdb
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\NetGraph\bin\DAL.dll
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\NetGraph\bin\AECSCore.dll
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\NetGraph\bin\DAL.pdb
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\NetGraph\bin\AECSCore.pdb
+C:\Users\Dergachev\Documents\GitHub\TMES\Code\NetGraph\bin\EntityFramework.dll

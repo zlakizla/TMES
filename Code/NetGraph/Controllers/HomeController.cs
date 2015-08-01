@@ -15,19 +15,69 @@ namespace NetGraph.Controllers
         //
         // GET: /Home/
 
+        private MainViewModel _model;
+        public MainViewModel Model
+        {
+            get
+            {
+                if(_model == null)
+                {
+                    _model = new MainViewModel();
+                }
+                return _model;
+            }
+            set
+            {
+                _model = value;
+            }
+        }
+
+        private static MainViewModel _instance;
+        public static MainViewModel GetInstance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new MainViewModel();
+                }
+                return _instance;
+            }
+            set
+            {
+                _instance = value;
+            }
+
+        }
+        
+
         public ActionResult Index(String Order)
         {
            // var Context = new UserContext();
            // var pek = Context.Works.Local;
            // var bek = Context.Elements.Local;
-            var model = new MainViewModel();
+           
              
-            model.RequestedOrderCode = Order;
+            Model.RequestedOrderCode = Order;
             if (Order != null)
             {
-                model.Load();
+                Model.Load();
             }
-            return View(model);
+            GetInstance = Model;
+            return View(Model);
+        }
+
+        [HttpGet]
+        public ActionResult Test1(String Index, String Denotation, Int32 Depth)
+        {
+            var Selected = GetInstance.CalendarGraph.Order.Content
+                .FirstOrDefault(x => x.Index == Index
+                                && x.Denotation == Denotation
+                                && x.Depth == Depth);
+            var ExploderVM = new ExploderViewModel(GetInstance.CalendarGraph);
+            ExploderVM.SelectedElement = Selected;
+            return PartialView("~/Views/Exploder/Exploder.cshtml", ExploderVM);
+               
         }
     }
 }

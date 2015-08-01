@@ -1,0 +1,49 @@
+﻿@model NetGraph.ViewModels.ExploderViewModel
+
+@using Utils
+
+<!-- Path Menu -->
+<div>
+
+    @foreach (var Element in Model.NavigationMenu)
+    {
+        <div>
+            @Element.ToString() >
+        </div>
+    }
+
+</div>
+<hr />
+<!-- Content -->
+<div>
+
+    <table class="MinorTable" style="width: 100%" id="ExploderTable">
+        <thead>
+            <tr>
+                <td>Type</td>
+                <td>Index</td>
+                <td>Denotation</td>
+                <td>Amount</td>
+                <td>Depth</td>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.CalendarGraph != null)
+            {
+                foreach (var Element in Model.SelectedElement.Content)
+                {
+                <tr>
+                      
+                        <td>@Element.Type.GetDesc()</td>
+                        <td class="Index">@Element.Index</td>
+                        <td class="Denotation">@Element.Denotation</td>
+                        <td>@Element.Amount</td>
+                        <td class="Depth">@Element.Depth</td>
+                </tr>
+                }
+            }
+        </tbody>
+    
+    </table>
+
+</div>

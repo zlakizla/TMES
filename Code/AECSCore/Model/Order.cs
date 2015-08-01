@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AECSCore
 {
-    public class Order
+    public class Order : IExplodable
     {
 
         public Int32 Id { get; set; }
@@ -14,8 +14,8 @@ namespace AECSCore
 
         public String Name { get; set; }
 
-        private ObservableCollection<Element> _content;
-        public ObservableCollection<Element> Content
+        private ICollection<Element> _content;
+        public ICollection<Element> Content
         {
             get
             {
@@ -31,6 +31,11 @@ namespace AECSCore
             }
         }
 
+        public void Explode(IExploder Exploder)
+        {
+            Exploder.Explode(this);
+        }
+
         #region Debug
 
         public static Order GetFakeOrder(String Name = "9915240")
@@ -38,8 +43,8 @@ namespace AECSCore
             var Result = new Order();
             Result.Name = "9915240";
 
-            Result.Content.Add(new Element(ElementType.Block,"УЭ","8.815.240"));
-            Result.Content.Add(new Element(ElementType.Block, "УЭ","7.715.240"));
+            (Result.Content as List<Element>).Add(new Element(ElementType.Block,"УЭ","8.815.240"));
+            (Result.Content as List<Element>).Add(new Element(ElementType.Block, "УЭ", "7.715.240"));
             
             return Result;
         }
@@ -55,5 +60,8 @@ namespace AECSCore
 
 
         #endregion Debug
+
+
+      
     }
 }

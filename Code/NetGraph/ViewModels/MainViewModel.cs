@@ -13,6 +13,16 @@ namespace NetGraph.ViewModels
     {
 
         #region Properties
+
+        private ExploderViewModel _exploderModel;
+        public ExploderViewModel ExploderModel
+        {
+            get;
+
+            set;
+
+        }
+
         private String _requestedOrderCode;
         public String RequestedOrderCode
         {
@@ -32,6 +42,8 @@ namespace NetGraph.ViewModels
             get { return _order; }
             set { _order = value; }
         }
+
+        public CalendarGraph CalendarGraph { get; set; }
 
         private IEnumerable<Department> _departments;
         public IEnumerable<Department> Departments
@@ -125,9 +137,20 @@ namespace NetGraph.ViewModels
         /// </summary>
         public void Load()
         {
+            if (String.IsNullOrWhiteSpace(RequestedOrderCode))
+            {
+                RequestedOrderCode = "203467";
+
+            }
             this.Order = GetOrder(RequestedOrderCode);
-            var CalendarGraph = new CalendarGraph(Order);  
-         //   this.Departments = GetDivisions();  
+            if(Order == null)
+            {
+                return;
+            } 
+            CalendarGraph = new CalendarGraph(Order);  
+
+
+            this.Departments = GetDivisions();  
             //AppContext.FindByOrder("4").RootWorks = Works;
             // Graph.GetRoot();
             //Elements = Graph.Elements;

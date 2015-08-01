@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetGraph.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,6 +23,17 @@ namespace NetGraph
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Test();
+        }
+
+        public void Test()
+        {
+            //var VM = new MainViewModel();
+            //VM.RequestedOrderCode = "203467";
+            //VM.Load();
         }
     }
+
+   
 }
