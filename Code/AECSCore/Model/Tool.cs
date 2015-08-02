@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace AECSCore
 {
-    public class Tool : Item
+    public class Tool 
     {
-    
+        public Int32 Id { get; set; }
+
         public Tool()
         {
             

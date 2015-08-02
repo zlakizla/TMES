@@ -117,11 +117,11 @@ namespace DAL
 
 
              modelBuilder.Entity<Item>().ToTable("Items");
-                modelBuilder.Entity<Tool>().Map(m =>
-                {
-                    m.MapInheritedProperties();
-                    m.ToTable("Tools");
-                });
+                //modelBuilder.Entity<Tool>().Map(m =>
+                //{
+                //    m.MapInheritedProperties();
+                //    m.ToTable("Tools");
+                //});
         }
         
         [TestMethod]

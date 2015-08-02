@@ -51,7 +51,7 @@ namespace TMES.ViewModel
             get
             {
 
-                return _selectedOrder.Content;
+                return _selectedOrder.Content as ObservableCollection<Element>;
             }
             set
             {
