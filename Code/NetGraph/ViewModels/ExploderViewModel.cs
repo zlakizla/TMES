@@ -23,6 +23,7 @@ namespace NetGraph.ViewModels
                 if(_navigationMenu == null)
                 {
                     _navigationMenu = new List<Element>();
+                   
                 }
                 return _navigationMenu;
             }
@@ -38,21 +39,38 @@ namespace NetGraph.ViewModels
             set;
         }
 
-        public ExploderViewModel(CalendarGraph CalendarGraph)
+        public ExploderViewModel(CalendarGraph CalendarGraph) ///, IEnumerable<Element> Path
         {
             if(CalendarGraph == null)
             {
+
                 return;
             }
             this.CalendarGraph = CalendarGraph;
-            var Root = Element.Root();
-            foreach(var Position in CalendarGraph.Order.Content)
+      
+            int i = CalendarGraph.ActiveElement.Depth;
+            NavigationMenu.Add(CalendarGraph.ActiveElement);
+            var cursor = CalendarGraph.ActiveElement.Parent;
+
+            if(cursor != null)
             {
-                Root.Content.Add(Position);
+                while (cursor.Id != -1)
+                {
+
+                    NavigationMenu.Add(cursor);
+
+                    cursor = cursor.Parent;
+                    if (cursor == null)
+                    {
+                        break;
+                    }
+                }
+
             }
-            NavigationMenu.Add(Root);
-           
-            SelectedElement = Root;  
+         
+            
+
+            SelectedElement = CalendarGraph.ActiveElement;  
         }
     }
 }

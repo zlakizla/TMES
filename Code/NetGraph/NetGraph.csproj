@@ -126,6 +126,7 @@
     <Compile Include="Controllers\ExploderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WorkController.cs" />
+    <Compile Include="Controllers\WorkDetailController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -133,8 +134,8 @@
     <Compile Include="Models\ElementExploder.cs" />
     <Compile Include="Models\Exploder.cs" />
     <Compile Include="Models\OrderExploder.cs" />
-    <Compile Include="Models\Work.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\WorkDetailViewModel.cs" />
     <Compile Include="ViewModels\ExploderViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\WorkViewModel.cs" />
@@ -241,6 +242,7 @@
     <Content Include="Views\Work\GetWorkDetails.cshtml" />
     <Content Include="Views\Work\Index.cshtml" />
     <Content Include="Views\Exploder\Exploder.cshtml" />
+    <Content Include="Views\WorkDetail\WorkDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

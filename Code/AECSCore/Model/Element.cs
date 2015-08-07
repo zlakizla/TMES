@@ -206,6 +206,80 @@ namespace AECSCore
 
             return Result;
         }
-     
+
+        public Element FindAncestor(Element Parent)
+        {
+            var Result = this.Parent;
+            while(Result != Parent)
+            {
+
+                Result = Result.Parent;
+                if(Result == null)
+                {
+                    break;
+                }
+            }
+            return Result;
+        }
+
+        public static bool operator ==(Element First, Element Second)
+        {
+            if (ReferenceEquals(First, Second))
+            {
+                return true;
+            }
+            if(ReferenceEquals(First, null))
+            {
+                return false;
+            }
+            if (ReferenceEquals(null, Second))
+            {
+                return false;
+            }
+            if(First.Index != Second.Index)
+            {
+                return false;
+            }
+            if (First.Depth != Second.Depth)
+            {
+                return false;
+            }
+            if (First.Denotation != Second.Denotation)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool operator !=(Element First, Element Second)
+        {
+            if (ReferenceEquals(First, Second))
+            {
+                return false;
+            }
+            if (ReferenceEquals(First, null))
+            {
+                return true;
+            }
+            if (ReferenceEquals(null, Second))
+            {
+                return true;
+            }
+            if (First.Index != Second.Index)
+            {
+                return true;
+            }
+            if (First.Depth != Second.Depth)
+            {
+                return true;
+            }
+            if (First.Denotation != Second.Denotation)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

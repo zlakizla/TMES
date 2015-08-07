@@ -11,6 +11,12 @@
     padding: 0px;
     padding-top: 5px;
     box-sizing: border-box;
+     
+}
+
+.Work.ui-resizable
+{
+     position: fixed !important;
 }
 
 .ActualWork

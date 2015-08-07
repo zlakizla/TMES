@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System;
 using System.Data.SqlClient;
 using AECSCore;
+using System.Web.Configuration;
 
 namespace NetGraph
 {
     public class CalendarGraph
     {
+        public static Int32 Counter;
+
         #region Properties
 
         private Order _order;
@@ -23,6 +26,30 @@ namespace NetGraph
                 _order = value;
             }
         }
+
+        //private IEnumerable<Element> _activeDepthElements;
+        //public IEnumerable<Element> ActiveDepthElements
+        //{
+        //    get { return _activeDepthElements; }
+        //    set { _activeDepthElements = value; }
+        //} 
+
+        private Element _activeElement;
+
+        public Element ActiveElement
+        {
+            get 
+            { 
+                if(_activeElement == null)
+                {
+                    _activeElement = Element.Root();
+                    //_activeElement.Content = Order.Content;
+                }
+                return _activeElement; 
+            }
+            set { _activeElement = value; }
+        }
+
 
         /// <summary>
         /// Zero-level works 
@@ -69,6 +96,8 @@ namespace NetGraph
 
         public CalendarGraph(Order Order)
         {
+            Clear();
+
             this.Order = Order;
 
             // To IoC
@@ -76,6 +105,7 @@ namespace NetGraph
 
             this.Order.Explode(Exploder);
 
+            ActiveElement.Content = this.Order.Content;
            /// OrderExplode();
           ///  CacheExpandResults();
         }
@@ -83,6 +113,22 @@ namespace NetGraph
         #endregion Constructor
 
         #region Methods
+
+        public void Clear()
+        {
+            var ConnString = WebConfigurationManager.ConnectionStrings["DebugConn"].ConnectionString;
+
+            using (SqlConnection Conn = new SqlConnection(ConnString))
+            {
+                Conn.Open();
+                using (var Cmd = new SqlCommand("", Conn))
+                {
+                    Cmd.CommandText = @"DELETE FROM [ConstDocs].[dbo].[tempPOSPRIMB]
+                                        WHERE id LIKE 'NetGraph%'";
+                    Cmd.ExecuteNonQuery();
+                }
+            }
+        }
 
         /// <summary>
         /// Получить корневые работы по 
@@ -216,6 +262,7 @@ namespace NetGraph
             //Elements = RequestedOrder.Elements;
         }
 
+     
 
         #endregion Logic
     }

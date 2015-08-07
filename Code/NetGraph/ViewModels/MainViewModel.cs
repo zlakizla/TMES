@@ -80,42 +80,42 @@ namespace NetGraph.ViewModels
 
         }
 
-        private List<Work> _commonWorks;
-        public List<Work> CommonWorks
+        private IEnumerable<Work> _standartWorks;
+        public IEnumerable<Work> StandartWorks
         {
             get
             {
-                if (_commonWorks == null)
+                if (_standartWorks == null)
                 {
-                    _commonWorks = new List<Work>();
+                    _standartWorks = new List<Work>();
                 }
-                return _commonWorks;
+                return _standartWorks;
             }
             set
             {
-                _commonWorks = value;
+                _standartWorks = value;
             }
         }
 
-        private List<Work> _works;
-        public List<Work> Works
+        private IEnumerable<Work> _mainWorks;
+        public IEnumerable<Work> MainWorks
         {
             get
             {
-                if (_works == null)
+                if (_mainWorks == null)
                 {
-                    _works = new List<Work>();
+                    _mainWorks = new List<Work>();
                 }
-                return _works;
+                return _mainWorks;
             }
             set
             {
-                _works = value;
+                _mainWorks = value;
             }
         }
 
-        private List<Work> _preparationWorks;
-        public List<Work> PreparationWorks
+        private IEnumerable<Work> _preparationWorks;
+        public IEnumerable<Work> PreparationWorks
         {
             get
             {
@@ -130,6 +130,8 @@ namespace NetGraph.ViewModels
                 _preparationWorks = value;
             }
         }
+
+
         #endregion Properties
        
         /// <summary>
@@ -149,12 +151,10 @@ namespace NetGraph.ViewModels
             } 
             CalendarGraph = new CalendarGraph(Order);  
 
-
-            this.Departments = GetDivisions();  
-            //AppContext.FindByOrder("4").RootWorks = Works;
-            // Graph.GetRoot();
-            //Elements = Graph.Elements;
-            //Works = Graph.RootWorks;
+            this.Departments = GetDivisions();
+            this.StandartWorks = GetStandartWorks();
+            this.PreparationWorks = GetPreparationWorks();
+            this.MainWorks = GetMainWorks();
         }
 
         /// <summary>
@@ -174,77 +174,83 @@ namespace NetGraph.ViewModels
             return Result;
         }
 
+        public IEnumerable<Work> GetStandartWorks()
+        {
+            var Result = new List<Work>();
 
-        //:: Populate CalendarGraph with some FakeWorks
-        #region Mock
-        //private void FakeLoad()
-        //{
-            
-           
-        //    Departments = FakeDepartments();
-        //    AppContext.Departments = Departments;
+            var ContractWork = new Work();
+            ContractWork.Name = "Контракт";
+            ContractWork.Duration = 6;
 
-        //    Elements = FakeExlosion();
+            var AuctionWork = new Work();
+            AuctionWork.Name = "Торги";
+            AuctionWork.Duration = 70;
+            AuctionWork.XOffset = ContractWork.Duration;
 
-        //    var FirstFakeWork = new Work(10.0, 1, 3, Departments[0]);
-        //    FirstFakeWork.Target.Add(new Element(ElementType.Block,"УЭ","4100200"));
+            var PaymentWork = new Work();
+            PaymentWork.Name = "Оплата";
+            PaymentWork.Duration = 17;
+            PaymentWork.XOffset = AuctionWork.XOffset + AuctionWork.Duration + 40;
+
+            var BuyMaterialsWork = new Work();
+            BuyMaterialsWork.Name = "Закуп. матер.";
+            BuyMaterialsWork.Duration = 200;
+            BuyMaterialsWork.XOffset = PaymentWork.XOffset + PaymentWork.Duration;
+
+            var BuyPurchasedWork = new Work();
+            BuyPurchasedWork.Name = "Закуп. ПКИ";
+            BuyPurchasedWork.Duration = 200;
+            BuyPurchasedWork.XOffset = PaymentWork.XOffset + PaymentWork.Duration;
 
 
-        //    Works.Add(FirstFakeWork);
-        //    Works.Add(new Work(10.0, 1, 3, Departments[1]));
-        //    Works.Add(new Work(10.0, 1, 3, Departments[2]));
-        //    Works.Add(new Work(10.0, 1, 3, Departments[3]));
+            Result.Add(ContractWork);
+            Result.Add(AuctionWork);
+            Result.Add(PaymentWork);
+            Result.Add(BuyMaterialsWork);
+            Result.Add(BuyPurchasedWork);
 
-        //    FakeCommonWorks();
-        //    FakePreparationWorks();
-        //}
+            return Result;
+        }
 
-        //private List<Element> FakeExlosion()
-        //{
-        //    var Elements = new List<Element>();
-        //    var RootBlock = new Element(ElementType.Block, "Ха", "123456789");
-        //    var Level1BlockOne = new Element(ElementType.Block, "Хб", "1000001", RootBlock);
-        //    var Level1BlockTwo = new Element(ElementType.Block, "Хб", "1000002", RootBlock);
-        //    var Level2BlockOne = new Element(ElementType.Purchased, "Хб", "2000001", Level1BlockOne);
-        //    Elements.Add(RootBlock);
-        //    Elements.Add(Level1BlockOne);
-        //    Elements.Add(Level1BlockTwo);
-        //    Elements.Add(Level2BlockOne);
-        //    return Elements;
-        //}
+        public IEnumerable<Work> GetPreparationWorks()
+        {
+            var PaymentWork = this.StandartWorks.First(x => x.Name == "Оплата");
+            List<Work> Result = new List<Work>();
+            var PrepDepartments = this.Departments.Where(x => x.Id < 15);
+            foreach(var Department in PrepDepartments)
+            {
+                var Work = new Work();
+                Work.Department = Department;
+                Work.Duration = Department.Duration;
+                Work.XOffset = PaymentWork.XOffset + PaymentWork.Duration;
+                Result.Add(Work);
+            }
+            return Result;
+        }
 
-        //private List<Department> FakeDepartments()
-        //{
-        //    var Result = new List<Department>();
-        //    Result.Add(new Department(1, "Цех 2", "12", Color.CadetBlue.ToArgb()));
-        //    Result.Add(new Department(2, "Цех 4", "14", Color.Red.ToArgb()));
-        //    Result.Add(new Department(3, "Цех 11", "11", Color.MediumTurquoise.ToArgb()));
-        //    Result.Add(new Department(4, "Цех 15", "15", Color.FromArgb(40,198,13).ToArgb()));
-        //    Result.Add(new Department(5, "Контракт", "К", Color.Gray.ToArgb()));
-        //    Result.Add(new Department(6, "Торги", "Т", Color.Gray.ToArgb()));
-        //    Result.Add(new Department(7, "Оплата", "О", Color.Gray.ToArgb()));
-        //    Result.Add(new Department(8, "Закуп. мат.", "И", Color.Gray.ToArgb()));
-        //    Result.Add(new Department(9, "Закуп. ПКИ", "П", Color.Gray.ToArgb()));
-        //    Result.Add(new Department(10, "Цех 1", "1", Color.FromArgb(0, 162, 232).ToArgb()));
-        //    return Result;
+        public IEnumerable<Work> GetMainWorks()
+        {
+            var Purchased = this.StandartWorks.First(x => x.Name == "Закуп. ПКИ");
+            List<Work> Result = new List<Work>();
+            var PrepDepartments = this.Departments.Where(x => x.Id > 15);
+            foreach (var Department in PrepDepartments)
+            {
+                var Work = new Work();
+                Work.Department = Department;
+                Work.Duration = Department.Duration;
+                Work.XOffset = Purchased.XOffset + Purchased.Duration;
+                Result.Add(Work);
+            }
+            return Result;
+        }
 
-        //    //Color.FromArgb(0,162,232).ToArgb()));
-        //}
 
-        //private void FakeCommonWorks()
-        //{
-        //    CommonWorks.Add(new Work(10.0, 0, 3, Departments[4]));
-        //    CommonWorks.Add(new Work(10.0, 0, 3, Departments[5]));
-        //    CommonWorks.Add(new Work(10.0, 0, 3, Departments[6]));
-        //    CommonWorks.Add(new Work(10.0, 0, 3, Departments[7]));
-        //    CommonWorks.Add(new Work(10.0, 0, 3, Departments[8]));
-        //}
-
-        //private void FakePreparationWorks()
-        //{
-        //    PreparationWorks.Add(new Work(10.0, 0, 0, Departments[9]));
-        //}
-        #endregion Mock
-
+//        public void MockGetOrders()
+//        {
+//            var Cmd = @"SELECT DISTINCT Z, [NSI].[dbo].[Zakaz].NaimZak
+//                        FROM [NSI].[dbo].[ZakazVPR]
+//                        INNER JOIN [NSI].[dbo].[Zakaz] 
+//                        ON [NSI].[dbo].[Zakaz].zakaz = [NSI].[dbo].[ZakazVPR].Z";
+//        }
     }
 }

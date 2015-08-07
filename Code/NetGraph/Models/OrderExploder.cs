@@ -24,10 +24,13 @@ namespace NetGraph
 
         private void ExplodeContent()
         {
+            this.Order.Root = Element.Root();
             var Exploder = new ElementExploder(this.Order);
             foreach (Element HeadBlock in this.Order.Content)
             {
                 HeadBlock.Explode(Exploder);
+                this.Order.Root.Content.Add(HeadBlock);
+                HeadBlock.Parent = this.Order.Root;
             }
         }
     }

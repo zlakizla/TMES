@@ -4,9 +4,55 @@
    
 }
 
+function LoadBlock(Direction, Index, Denotation, Depth)
+{
+    var Method;
+    if (Direction == "Up")
+    {
+        Method = 'Test1';
+    }
+    else if (Direction == "Down")
+    {
+        Method = 'OpenParent';
+    }
+    else if (Direction == null)
+    {
+        Method = 'LoadWorkDetail';
+    }
+    else
+    {
+        throw new ExceptionInformation("Direction is incorrect");
+    }
+    var Url = 'Home/' + Method + '/';
+    $.ajax({
+        url: Url,
+        type: 'GET',
+        cache: false,
+        data:
+        {
+            Index: Index,
+            Denotation: Denotation,
+            Depth: Depth
+        },
+        success: function (result) {
+            if (Direction != null)
+            {
+                $('.NavigatorExploder').html(result);
+            }
+            else
+            {
+                $('.NavigatorWorkDetail').html(result);
+            }
+           
+        },
+        error: function (e1, e2, e3) {
+
+        }
+    });
+}
+
 $(function ()
 {
- 
     $('#ExploderTable tbody tr').live('click',
      function ()
      {
@@ -14,29 +60,19 @@ $(function ()
          var Index = $(this).find('.Index').html();
          var Denotation = $(this).find('.Denotation').html();
          var Depth = $(this).find('.Depth').html();
-         
-         $.ajax({
-             url: 'Home/Test1/',
-             type: 'GET',
-             cache: false,
-             data:
-                {
-               
-                    Index: Index,
-                    Denotation: Denotation,
-                    Depth: Depth
-             },
-             success: function (result) {
-                 $('.NavigatorExploder').html(result);
-             },
-             error: function(e1,e2,e3)
-             {
-            
-             }
-         });
-
+         LoadBlock('Up',Index, Denotation, Depth);
+         LoadBlock(null, Index, Denotation, Depth);
      });
 
+    $('.NavigatorMenu').live('click',
+        function ()
+        {
+            var Index = $(this).find('.Index').html();
+            var Denotation = $(this).find('.Denotation').html();
+            var Depth = $(this).find('.Depth').html();
+            LoadBlock('Down', Index, Denotation, Depth);
+            LoadBlock(null, Index, Denotation, Depth);
+        });
 
 
     WorksRender();
@@ -65,31 +101,34 @@ function WorksRender()
     ActualWork = $('.ActualWork');
     Work = $('.Work');
     var MaxDuration = 0;
-    var MaxLength = 900;
+    var MaxLength = window.innerWidth - 70; // 70 is a margin for department name
     var MinLength = 100;
     for (var i = 0; i < Work.length; i++)
     {
         Work[i].Duration = parseFloat($(Work[i]).find('.Duration').val().replace(',', '.'));
         Work[i].Color = $(Work[i]).find('.Color').val();
-       
+        Work[i].XOffset = $(Work[i]).find('.XOffset').val();
+
         $(Work[i]).css({ "background-color": ShortColor(Work[i].Color) });
 
         if(MaxDuration < Work[i].Duration)
         {
             MaxDuration = Work[i].Duration;
         }
+
         
     }
-    MaxDuration = 1600;
+    MaxDuration = 960;
     var StepDuration = MaxLength / MaxDuration;
    
     for (var i = 0; i < Work.length; i++)
     {
         Work[i].StepDuration = StepDuration;
+        if (Work[i].XOffset > 0) {
+            $(Work[i]).css("left", Work[i].offsetLeft + StepDuration * Work[i].XOffset);
+        }
         $(Work[i]).css("width", 10 + StepDuration * Work[i].Duration);
     }
-
-     
 
 }
 
@@ -113,13 +152,13 @@ function WorksResize()
         $(Work[i]).resizable(
         {
             maxHeight: 30,
-            maxWidth: 1000,
-            minWidth: 20 + Work[i].Duration * Work[i].StepDuration,
+            maxWidth: window.innerWidth - 70,
+            minWidth: Work[i].Duration * Work[i].StepDuration + 10,
             minHeight: 30,
             resize: function (e, args)
             {
-                var NewWidth = args.size.width / this.StepDuration - 60;
-                //Work[i].StepDuration * 
+                var NewWidth = args.size.width / this.StepDuration - 8;
+             
                 $(this).find('.DurationText').html(NewWidth.toFixed(0));
             }
         });

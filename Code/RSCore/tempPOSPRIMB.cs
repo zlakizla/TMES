@@ -11,9 +11,11 @@ namespace RSCore
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class tempPOSPRIMB
     {
+        [Key]
         public int id_record { get; set; }
         public string TIP { get; set; }
         public string IND1 { get; set; }

@@ -25,6 +25,7 @@ namespace RSCore
                 foreach(var Row in SearchResult)
                 {
                     Department Department = new Department();
+                    Department.Id = Convert.ToInt32(Row.C);
                     Department.ShortName = Row.C.ToString();
                     Department.Name = Row.C.ToString();
                     Department.Duration = Row.Duration ?? 0;

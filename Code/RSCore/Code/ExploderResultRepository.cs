@@ -11,15 +11,16 @@ namespace RSCore
 {
     public class ExploderResultRepository : IElementRepository
     {
+        Int32 Counter { get; set; }
         /// TODO : REMOVE MAGIC STRING
         public IEnumerable<Element> SelectAll()
         {
             var Result = new List<Element>();
             using(var Context = new ConstDocsEntities())
             {
-
+                var id = "NetGraph" + Counter;
                 var RawResult = Context.tempPOSPRIMB
-                                .Where(x => x.id == "NetGraph").ToList();
+                                .Where(x => x.id == id ).OrderBy(x => x.TIP).ToList();
 
                 foreach(tempPOSPRIMB Record in RawResult)
                 {
@@ -38,7 +39,8 @@ namespace RSCore
                         Index = Record.IND1,
                         Denotation = Record.PICH,  
                         Depth = Record.Depth,
-                        Parent = MockParent
+                        Parent = MockParent,
+                        Amount = Record.KSP.Value
                     };
                     Result.Add(Element);
                 }
@@ -74,6 +76,11 @@ namespace RSCore
         public void Save()
         {
             throw new NotImplementedException();
+        }
+
+        public ExploderResultRepository(Int32 Counter)
+        {
+            this.Counter = Counter;
         }
     }
 }

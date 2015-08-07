@@ -8,9 +8,11 @@ using System.Web;
 
 namespace NetGraph
 {
+   
     public class ElementExploder : IExploder
     {
 
+        public Element OrderRoot { get; set; }
 
         public Order Order { get; set; }
         public Element Target
@@ -41,11 +43,20 @@ namespace NetGraph
 
         private void GetContent()
         {
-            var Store = new ExploderResultRepository();
+            var Store = new ExploderResultRepository(CalendarGraph.Counter);
             var AllRecords = Store.SelectAll();
+
+            var RootElement = Target as Element;
+            var RequestedRoot = AllRecords.FirstOrDefault(x => x.Denotation == RootElement.Denotation
+                                    && x.Index == RootElement.Index
+                                    &&  x.Parent.Id == -1);
+            if(RequestedRoot == null)
+            {
+                throw new EntryPointNotFoundException("ElementExploder faced an error");
+            }
+
             foreach(var Record in AllRecords)
             {
-                
                 if(Record.Depth > 0)
                 {
                     
@@ -54,15 +65,21 @@ namespace NetGraph
                 }
                 else
                 {
-                   (Target as Element).Content.Add(Record);
+                    Record.Parent = Order.Root;
+                    //if(OrderRoot != null)
+                    //{
+
+                    //}
+                   //(Target as Element).Content.Add(Record);
                 }
-                
+                Target.Content  = RequestedRoot.Content;
             }
+            CalendarGraph.Counter++;
         }
 
         private void ExplodeContent()
         {
-            var Id = new SqlParameter("@id", "NetGraph");
+            var Id = new SqlParameter("@id", "NetGraph" + CalendarGraph.Counter );
             var IND1 = new SqlParameter("@IND1", Target.Index);
             var PICH1 = new SqlParameter("@PICH1", Target.Denotation);
             var Z = new SqlParameter("@Z", Order.Code);
@@ -73,6 +90,7 @@ namespace NetGraph
                 , IND1
                 , PICH1
                 , Z);
+           
         }
 
     }

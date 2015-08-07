@@ -17,6 +17,28 @@ namespace AECSCore
 {
     public class Work
     {
+        public Int32 Id { get; set; }
+
+        public String Name { get; set; }
+
+        public Work Parent { get; set; }
+
+        public Department Department { get; set; }
+
+        public Double Duration { get; set; }
+
+        public Int32 ChainNumber { get; set; }
+
+        /// <summary>
+        /// May or may be not presented at the root level
+        /// </summary>
+        public Element Element { get; set; }
+
+        public Double XOffset { get; set; }
+
+        
+
+
 
     }
 }

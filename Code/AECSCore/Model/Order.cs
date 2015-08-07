@@ -14,6 +14,8 @@ namespace AECSCore
 
         public String Name { get; set; }
 
+        public Element Root { get; set; }
+
         private ICollection<Element> _content;
         public ICollection<Element> Content
         {

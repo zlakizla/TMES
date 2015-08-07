@@ -3,19 +3,27 @@
 @using Utils
 
 <!-- Path Menu -->
-<div>
+<div style="float: left">
 
+    @if (Model.NavigationMenu.Count == 0)
+{
+    <span class="NavigatorMenu">Root</span>
+}
     @foreach (var Element in Model.NavigationMenu)
     {
-        <div>
-            @Element.ToString() >
-        </div>
+        <span class="NavigatorMenu">
+            @Element.ToString()
+            <span class="Index" style="display: none">@Element.Index</span>
+            <span class="Denotation" style="display: none">@Element.Denotation</span>
+            <span class="Depth" style="display: none">@Element.Depth</span>
+        </span>@*style="display: none;"*@
     }
 
 </div>
-<hr />
+
+<hr style=" clear: both" />
 <!-- Content -->
-<div>
+<div style="overflow-y: scroll; height: 100%">
 
     <table class="MinorTable" style="width: 100%" id="ExploderTable">
         <thead>
@@ -33,7 +41,6 @@
                 foreach (var Element in Model.SelectedElement.Content)
                 {
                 <tr>
-                      
                         <td>@Element.Type.GetDesc()</td>
                         <td class="Index">@Element.Index</td>
                         <td class="Denotation">@Element.Denotation</td>
