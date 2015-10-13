@@ -16,7 +16,7 @@ namespace Win32Launcher
         public void Configuration(IAppBuilder app)
         {
             var webApiConfiguration = ConfigureWebApi();
-           
+
             // Use the extension method provided by the WebApi.Owin library:
             app.UseWebApi(webApiConfiguration);
         }
@@ -41,9 +41,25 @@ namespace Win32Launcher
 
             Console.WriteLine("Starting web Server...");
             WebApp.Start<Startup>(baseUri);
-            
+
             Console.WriteLine("Server running at {0} - press Enter to quit. ", baseUri);
             Console.ReadLine();
         }
+
+
     }
+
+    [Route("[action]/{Order:int}")]
+    public class TestController : ApiController
+    {
+
+        // GET: api/values
+        [HttpGet]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+    }
+
 }
+
