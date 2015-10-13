@@ -1,7 +1,25 @@
 ﻿function Build()
 {
+    var RequestedOrderId = $('#Order').text();
+    if (isNaN(RequestedOrderId))
+    {
+        return;
+    }
 
-   // $('#myform')[0].submit();
+    $.ajax({
+        url: "/api/CalendarGraph/Build/" + RequestedOrderId,
+        type: 'GET',
+        cache: false,
+        data:null,
+        success: function (result)
+        {
+
+        },
+        error: function (e1, e2, e3)
+        {
+     
+        }
+    });
 }
 
 function LoadBlock(Direction, Index, Denotation, Depth)

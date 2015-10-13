@@ -671,6 +671,11 @@
           "lib/net45/Microsoft.CodeAnalysis.CSharp.dll": {}
         }
       },
+      "Microsoft.CSharp/4.0.0-beta-23019": {
+        "frameworkAssemblies": [
+          "Microsoft.CSharp"
+        ]
+      },
       "Microsoft.Framework.Caching.Abstractions/1.0.0-beta5": {
         "frameworkAssemblies": [
           "mscorlib",
@@ -1016,12 +1021,60 @@
           "lib/net45/Microsoft.Net.WebSockets.dll": {}
         }
       },
+      "Microsoft.Owin/3.0.1": {
+        "dependencies": {
+          "Owin": "1.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        }
+      },
+      "Microsoft.Owin.FileSystems/3.0.1": {
+        "compile": {
+          "lib/net45/Microsoft.Owin.FileSystems.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.FileSystems.dll": {}
+        }
+      },
+      "Microsoft.Owin.StaticFiles/3.0.1": {
+        "dependencies": {
+          "Owin": "1.0",
+          "Microsoft.Owin": "3.0.1",
+          "Microsoft.Owin.FileSystems": "3.0.1"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.StaticFiles.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.StaticFiles.dll": {}
+        }
+      },
       "Newtonsoft.Json/6.0.6": {
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Owin/1.0": {
+        "compile": {
+          "lib/net40/Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Owin.dll": {}
+        }
+      },
+      "System.Collections/4.0.10-beta-23019": {
+        "dependencies": {
+          "System.Runtime": "4.0.0-beta-23019"
+        },
+        "compile": {
+          "ref/dotnet/System.Collections.dll": {}
         }
       },
       "System.Collections.Immutable/1.1.36": {
@@ -1032,6 +1085,7 @@
           "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.dll": {}
         }
       },
+      "System.Linq/4.0.0-beta-23019": {},
       "System.Reflection.Metadata/1.0.21": {
         "dependencies": {
           "System.Collections.Immutable": "1.1.36"
@@ -1042,7 +1096,18 @@
         "runtime": {
           "lib/portable-net45+win8/System.Reflection.Metadata.dll": {}
         }
-      }
+      },
+      "System.Runtime/4.0.10-beta-23019": {},
+      "System.Threading/4.0.10-beta-23019": {
+        "dependencies": {
+          "System.Runtime": "4.0.0-beta-23019",
+          "System.Threading.Tasks": "4.0.0-beta-23019"
+        },
+        "compile": {
+          "ref/dotnet/System.Threading.dll": {}
+        }
+      },
+      "System.Threading.Tasks/4.0.0-beta-23019": {}
     },
     "DNXCore,Version=v5.0": {
       "Microsoft.AspNet.Authentication/1.0.0-beta5": {
@@ -1994,6 +2059,19 @@
           "lib/dnxcore50/Microsoft.Net.WebSockets.dll": {}
         }
       },
+      "Microsoft.Owin/3.0.1": {
+        "dependencies": {
+          "Owin": "1.0"
+        }
+      },
+      "Microsoft.Owin.FileSystems/3.0.1": {},
+      "Microsoft.Owin.StaticFiles/3.0.1": {
+        "dependencies": {
+          "Owin": "1.0",
+          "Microsoft.Owin": "3.0.1",
+          "Microsoft.Owin.FileSystems": "3.0.1"
+        }
+      },
       "Microsoft.Win32.Primitives/4.0.0-beta-23019": {
         "dependencies": {
           "System.Runtime": "4.0.20-beta-23019",
@@ -2031,6 +2109,7 @@
           "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll": {}
         }
       },
+      "Owin/1.0": {},
       "System.Collections/4.0.10-beta-23019": {
         "dependencies": {
           "System.Runtime": "4.0.20-beta-23019"
@@ -3890,6 +3969,39 @@
         "lib/net45/Microsoft.Net.WebSockets.xml"
       ]
     },
+    "Microsoft.Owin/3.0.1": {
+      "serviceable": true,
+      "sha512": "64yZsGN9uRnXNVAyAT4F6KWmdDUJ6yX4uqzxKTdGANKH1oMt0IKZ7THRRa3mXIOo8iSu4tq/DCBUycUY9pXZzw==",
+      "files": [
+        "Microsoft.Owin.3.0.1.nupkg",
+        "Microsoft.Owin.3.0.1.nupkg.sha512",
+        "Microsoft.Owin.nuspec",
+        "lib/net45/Microsoft.Owin.dll",
+        "lib/net45/Microsoft.Owin.XML"
+      ]
+    },
+    "Microsoft.Owin.FileSystems/3.0.1": {
+      "serviceable": true,
+      "sha512": "eseUvNAPjfPDmBYNGz8IP7g5db5zNdapqYttSdagv4BG4PrRzukxqW0PAruM/rFM823XsJW52krnHbS9NmzKlQ==",
+      "files": [
+        "Microsoft.Owin.FileSystems.3.0.1.nupkg",
+        "Microsoft.Owin.FileSystems.3.0.1.nupkg.sha512",
+        "Microsoft.Owin.FileSystems.nuspec",
+        "lib/net45/Microsoft.Owin.FileSystems.dll",
+        "lib/net45/Microsoft.Owin.FileSystems.XML"
+      ]
+    },
+    "Microsoft.Owin.StaticFiles/3.0.1": {
+      "serviceable": true,
+      "sha512": "0Yxz8sEFZVin5QMq0q2YX3wHdY9eA4akFA9PGpugTCJ2SFErow/W0qPJRJhT/SMs3g2k7JKbxUATLB5xiBhnTw==",
+      "files": [
+        "Microsoft.Owin.StaticFiles.3.0.1.nupkg",
+        "Microsoft.Owin.StaticFiles.3.0.1.nupkg.sha512",
+        "Microsoft.Owin.StaticFiles.nuspec",
+        "lib/net45/Microsoft.Owin.StaticFiles.dll",
+        "lib/net45/Microsoft.Owin.StaticFiles.XML"
+      ]
+    },
     "Microsoft.Win32.Primitives/4.0.0-beta-23019": {
       "sha512": "n7NHaku+ETTbNtkUd27NYl/BzW1luYsciL3UDt3PwoPI0s7JrV8fTRQlZ0N5o57j34e5lMV8GvT+li+6LRuO9g==",
       "files": [
@@ -3935,6 +4047,15 @@
         "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.xml",
         "tools/install.ps1"
+      ]
+    },
+    "Owin/1.0": {
+      "sha512": "OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
+      "files": [
+        "Owin.1.0.nupkg",
+        "Owin.1.0.nupkg.sha512",
+        "Owin.nuspec",
+        "lib/net40/Owin.dll"
       ]
     },
     "System.Collections/4.0.10-beta-23019": {
@@ -4477,6 +4598,21 @@
         "runtimes/win8-aot/lib/netcore50/System.Resources.ResourceManager.dll"
       ]
     },
+    "System.Runtime/4.0.10-beta-23019": {
+      "sha512": "yZZc2OMujDOirzMus09Og7DtGdz8Uj/zMtVRvouNSo1QQ68KV9iYjXMJJ48Jhv6DYsmH1vGEbL98NVFEHcrpqA==",
+      "files": [
+        "License.rtf",
+        "System.Runtime.4.0.10-beta-23019.nupkg",
+        "System.Runtime.4.0.10-beta-23019.nupkg.sha512",
+        "System.Runtime.nuspec",
+        "lib/net451/_._",
+        "lib/win81/_._",
+        "ref/dotnet/System.Runtime.dll",
+        "ref/net451/_._",
+        "ref/netcore50/System.Runtime.dll",
+        "ref/win81/_._"
+      ]
+    },
     "System.Runtime/4.0.20-beta-23019": {
       "sha512": "jutOTXbGebNflv0cci3oCUD1FQi570W6igBwI7IBkKR+Z8GFFAuYDSYYASznNwP8rEeHyC2wH6j+oZ7vSPmd0Q==",
       "files": [
@@ -4776,6 +4912,21 @@
         "ref/net46/System.Threading.Overlapped.dll"
       ]
     },
+    "System.Threading.Tasks/4.0.0-beta-23019": {
+      "sha512": "frcOMzzaVN9AHhlJRLKOqm9WHws2byLa+CDFUZIQzUWqrpubH0CDtNj1je5lJpD1QDwJBmnXepKUXCwt/wt9Ew==",
+      "files": [
+        "License.rtf",
+        "System.Threading.Tasks.4.0.0-beta-23019.nupkg",
+        "System.Threading.Tasks.4.0.0-beta-23019.nupkg.sha512",
+        "System.Threading.Tasks.nuspec",
+        "lib/net45/_._",
+        "lib/win8/_._",
+        "ref/dotnet/System.Threading.Tasks.dll",
+        "ref/net45/_._",
+        "ref/netcore50/System.Threading.Tasks.dll",
+        "ref/win8/_._"
+      ]
+    },
     "System.Threading.Tasks/4.0.10-beta-23019": {
       "sha512": "4B/wmLTG7BIzdiXiU8GEwaDXojEf2N5sbjqVNlfzFll4/ani4yGpgWGlCySNN55ET+gP/ueLh//jTFSjBY9rdw==",
       "files": [
@@ -4877,7 +5028,10 @@
       "Microsoft.AspNet.Server.IIS >= 1.0.0-beta5",
       "Microsoft.AspNet.Server.WebListener >= 1.0.0-beta5",
       "Microsoft.AspNet.StaticFiles >= 1.0.0-beta5",
-      "Microsoft.AspNet.Mvc >= 6.0.0-beta5"
+      "Microsoft.AspNet.Mvc >= 6.0.0-beta5",
+      "Core >= 1.0.0-*",
+      "Utils >= 1.0.0-*",
+      "Microsoft.Owin.StaticFiles >= 3.0.1"
     ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []
