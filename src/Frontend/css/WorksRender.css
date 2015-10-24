@@ -1,0 +1,135 @@
+﻿.Work
+{
+    display: block;
+    height: 30px !important;
+    width: 100px;
+    float: left;
+    background-color: grey;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    text-align: center;
+    padding: 0px;
+    padding-top: 5px;
+    box-sizing: border-box;
+     
+}
+
+.Work.ui-resizable
+{
+     position: fixed !important;
+}
+
+.ActualWork
+{
+    display: block;
+    height: 30px !important;
+    width: 100px;
+    float: left;
+    background-color: grey;
+    margin: 0px;
+    text-align: center;
+    padding: 0px;
+    box-sizing: padding-box;
+
+}
+
+.WorkDetail 
+{
+   width: 600px;
+   height: 300px;
+   background-color: black;
+   color: #DDD !important;
+
+}
+
+
+    .Work:hover
+    {
+        background-color: #8ea6b4 !important;
+        cursor: pointer;
+    }
+
+.SelectedWork
+{
+    padding-top: 4px;
+    border: 2px solid  #ffd800 !important; 
+    
+}
+
+.Work input
+{
+    display: none;
+}
+
+
+.DepartmentLine
+{
+    width: 100%;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    float: left;
+}
+
+    .DepartmentLine .DepartmentName
+    {
+        display: block;
+        float: left;
+        width: 50px;
+        margin-right: 50px;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+
+.ui-widget-content 
+{
+    background: none;
+}
+
+.ui-widget-header
+{
+     background: none;
+     background-color: grey !important;
+}
+
+
+
+.path 
+{
+    display: block;
+ 
+    float: left;
+    width: 100px;
+
+    border-right: 4px solid #2a2a2c;
+
+    padding-left: 10px;
+     white-space: nowrap;
+
+         background-color: #494a4d
+}
+
+.pathSelected
+{
+        display: block;
+ 
+    float: left;
+    width: 100px;
+
+    border-right: 4px solid #2a2a2c;
+
+    padding-left: 10px;
+     white-space: nowrap;
+
+         background-color: #666666
+}
+
+.pathWrapper {
+    width: 100%;
+    text-align: left;
+    float: left;
+        margin-right: 10px;
+            border-bottom: 4px solid #2a2a2c;
+    white-space: nowrap;
+}
+
