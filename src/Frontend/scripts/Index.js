@@ -1,9 +1,18 @@
 ﻿function Build()
 {
-    $('#myform')[0].submit();
-   
+   var RequestedOrder = document.getElementById("RequestedOrderInput").value;
+   AjaxRequest("api/order/" + RequestedOrder,null,ValidateOrder)
 }
 
+
+function ValidateOrder()
+{
+   alert('Пэк!'); 
+}
+
+
+
+// Все что ниже - надо разгрести :< 
 function LoadBlock(Direction, Index, Denotation, Depth)
 {
     var Method;
@@ -199,7 +208,5 @@ function Refresh()
             x.document.close();*/
         }
     });
-
-  //  $("#par").load('@Html.Partial("WorkDetail", new NetGraph.ViewModels.WorkDetailViewModel())');
 }
 
