@@ -1,6 +1,6 @@
 function AjaxRequest(url, data, success, error)
 {
-	alert('Request send to url:' + url);
+	//alert('Request send to url:' + url);
 	$.ajax
 	(
 		{

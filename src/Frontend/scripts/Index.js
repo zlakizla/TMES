@@ -7,7 +7,7 @@
 
 function ValidateOrder()
 {
-   alert('Пэк!'); 
+  
 }
 
 
