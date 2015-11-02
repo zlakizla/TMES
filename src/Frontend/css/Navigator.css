@@ -1,26 +1,43 @@
 ﻿/*  New Session */
 .NavigatorExploder
 {
-    height: 200px;
+    display: block;
+    float: left;
+    height: 100%;
     width: 50%;
-    background-color: #3d3d3d;
+    background-color: #252526;
     bottom: 0px;
-    position: fixed;
-    border-top: 1px solid grey;
-    border-right: 1px solid grey;
 
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 .NavigatorWorkDetail
 {
-    height: 200px;
+    display: block;
+    float: right;
+    height: 100%;
     width: 50%;
-    background-color: #3d3d3d;
-    bottom: 0px;
-    position: fixed;
-    border-top: 1px solid grey;
-    border-right: 1px solid grey;
+    margin:0px;
+    padding: 0px;
+    background-color: #252526;
+    bottom: 0px; 
+    box-sizing: border-box;
+}
 
+.NavigatorHeader
+{
+    display: block;
+   
+    height: 30px;
+    background-color: #333333; 
+    color: #AdAdAd;   
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    margin: 0px;
+    text-align: center;
 }
 
 .NavigatorApplication
