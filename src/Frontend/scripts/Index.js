@@ -10,6 +10,13 @@ function ValidateOrder()
    alert('Пэк!'); 
 }
 
+ $("body").mousewheel(function(event, delta) {
+     
+      this.scrollLeft -= (delta * 30);
+    
+      event.preventDefault();
+   });
+
 
 
 // Все что ниже - надо разгрести :< 
