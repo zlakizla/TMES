@@ -19,7 +19,7 @@ namespace Backend
 			return globalDatabaseManager;
 		}
 		public const String PrimaryConnectionString = 
-		@"Data Source=I3RU-ПК;Initial Catalog=NSI;Integrated Security=True"; 
+		@"Data Source=localhost;Initial Catalog=NSI;Integrated Security=True"; 
 		
 		private SqlConnection _primaryConnection;
 		private SqlConnection PrimaryConnection
@@ -32,19 +32,18 @@ namespace Backend
 				}
 				if(_primaryConnection.State != ConnectionState.Open)
 				{
-
 					_primaryConnection.Open();
 					if(_primaryConnection.State != ConnectionState.Open)
 					{
-						 Console.WriteLine("Connection failed");
+						 Console.WriteLine("Primary SQL Connection established!");
 					}
 				}
-				
 				return _primaryConnection;
 			}
 		}
 		public	DatabaseManager()
 		{
+			var TestConn = PrimaryConnection;
 			
 			//System.Data.Common.DbConnection
 			//SqlConnection
@@ -62,8 +61,10 @@ namespace Backend
 			}
 		}
 		
-		public SqlDataReader SendRequest(String Command, Dictionary<String, Object> Parameters)
-		{			
+		public Dictionary<Int32, Object> SendRequest(String Command, Dictionary<String, Object> Parameters)
+		{		
+			// TODO : Конкретизировать резалт	
+			var Result = new Dictionary<Int32, Object>();
 			using(SqlCommand cmd = new SqlCommand(Command,PrimaryConnection))
 			{
 				foreach(var Parameter in Parameters)
@@ -71,19 +72,22 @@ namespace Backend
 					cmd.Parameters.AddWithValue(Parameter.Key, Parameter.Value);
 				}
 				//:: Derg : Будет допилено чтоб возвращал коллекцию результатов
-				//  using(SqlDataReader dr = cmd.ExecuteReader())
-				//  {
-				//  	while(dr.Read())
-				//  	{
-				//  		
-				//  		dr[dr.FieldCount]
-				//  	}
-				//  }
 				using(SqlDataReader dr = cmd.ExecuteReader())
 				{
-					return dr;
+					var Request = cmd.CommandText;
+					var RequestParams = cmd.Parameters.ToString();
+             		Console.WriteLine("Send request for database:" + Request);
+					Console.WriteLine("Parameters:" + RequestParams);
+					while(dr.Read())
+					{
+						for(int i = 0; i < dr.FieldCount; i++)
+						{
+							Result.Add(i, dr[i]);
+						}
+					}
 				}
 			}
+			return Result;
 		}
 	}
 }

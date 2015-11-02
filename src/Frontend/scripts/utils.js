@@ -11,7 +11,7 @@ function AjaxRequest(url, data, success, error)
 			data: data,
 			success: function (result) 
 			{	
-				success();
+				success(result);
 			},
 			error: function (e1, e2, e3) 
 			{

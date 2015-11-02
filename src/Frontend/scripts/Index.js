@@ -1,17 +1,4 @@
-﻿function Build()
-{
-   var RequestedOrder = document.getElementById("RequestedOrderInput").value;
-   AjaxRequest("api/order/" + RequestedOrder,null,ValidateOrder)
-}
-
-
-function ValidateOrder()
-{
-  
-}
-
-
-
+﻿
 // Все что ниже - надо разгрести :< 
 function LoadBlock(Direction, Index, Denotation, Depth)
 {
@@ -104,80 +91,6 @@ function ShortColor(Color)
         }
     }
     return pek;
-}
-function WorksRender()
-{
-    ActualWork = $('.ActualWork');
-    Work = $('.Work');
-    var MaxDuration = 0;
-    var MaxLength = window.innerWidth - 70; // 70 is a margin for department name
-    var MinLength = 100;
-    for (var i = 0; i < Work.length; i++)
-    {
-        Work[i].Duration = parseFloat($(Work[i]).find('.Duration').val().replace(',', '.'));
-        Work[i].Color = $(Work[i]).find('.Color').val();
-        Work[i].XOffset = $(Work[i]).find('.XOffset').val();
-
-        $(Work[i]).css({ "background-color": ShortColor(Work[i].Color) });
-
-        if(MaxDuration < Work[i].Duration)
-        {
-            MaxDuration = Work[i].Duration;
-        }
-
-        
-    }
-    MaxDuration = 960;
-    var StepDuration = MaxLength / MaxDuration;
-   
-    for (var i = 0; i < Work.length; i++)
-    {
-        Work[i].StepDuration = StepDuration;
-        if (Work[i].XOffset > 0) {
-            $(Work[i]).css("left", Work[i].offsetLeft + StepDuration * Work[i].XOffset);
-        }
-        $(Work[i]).css("width", 10 + StepDuration * Work[i].Duration);
-    }
-
-}
-
-function WorksBehaviour()
-{
-    var Work = $('.Work');
-    Work.bind('click', function (event)
-    {
-        $('.SelectedWork').removeClass('SelectedWork');
-        $(this).addClass('SelectedWork');
-        Refresh();
-    });
-    WorksResize();
-}
-
-function WorksResize()
-{
-  //  var Work = $('.Work');
-    for (var i = 0; i < Work.length; i++)
-    {
-        $(Work[i]).resizable(
-        {
-            maxHeight: 30,
-            maxWidth: window.innerWidth - 70,
-            minWidth: Work[i].Duration * Work[i].StepDuration + 10,
-            minHeight: 30,
-            resize: function (e, args)
-            {
-                var NewWidth = args.size.width / this.StepDuration - 8;
-             
-                $(this).find('.DurationText').html(NewWidth.toFixed(0));
-            }
-        });
-        $(Work[i]).draggable(
-        {
-            containment: "parent",
-            axis: "x",
-
-        });
-    }
 }
 
 function WorkDetailIni()
