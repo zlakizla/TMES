@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0-*",
+  "description": "FrontEnd Class Library",
+  "authors": [ "Class Library template" ],
+  "tags": [""],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "tooling": {
+    "defaultNamespace": "FrontEnd"
+  },
+  
+  "dependencies":
+  {
+    "Entities": "",
+        "Microsoft.Framework.Logging": "1.0.0-beta8",
+    "Microsoft.Framework.Logging.Console": "1.0.0-beta8",
+    "Microsoft.Framework.Logging.Debug" : "1.0.0-beta8"
+  },
+  
+  "frameworks":
+  {
+    "dnxcore50": {
+      "dependencies": {
+        "Microsoft.CSharp": "4.0.1-beta-*",
+        "System.Collections": "4.0.11-beta-*",
+        "System.Linq": "4.0.1-beta-*",
+        "System.Runtime": "4.0.21-beta-*",
+        "System.Threading": "4.0.11-beta-*",
+          "System.Data.Common": "4.0.0.0-beta-22605",
+               "System.Data.SqlClient": "4.0.0.0-beta-22605"
+      }
+    }
+  }
+}
