@@ -11,6 +11,44 @@ namespace Launcher.Controllers
    [Route("api/[controller]")] 
     public class OrderController : Controller
     {   
+        [HttpGet("SrvGetRootTask")]
+        public List<Work> Pek(int Id)
+        {
+             Console.WriteLine("Request for SrvGetRootTask");
+             var Result = new List<Work>();
+            
+          
+
+          
+            var dbManager = DatabaseManager.GetInstance();
+            String Request = @"SELECT NAZVO
+                            FROM [ConstDocs].[dbo].[BlocksByOperation]
+                            WHERE id = @id";
+            var RequestArgs = new Dictionary<String,Object>();
+            try
+            {
+
+                 RequestArgs.Add("id","NetGraph8");
+                 var Reader = dbManager.SendRequest(Request, RequestArgs);
+                 Console.WriteLine("Results found: " + Reader.Count.ToString());
+            }
+            catch (System.Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+          
+            //  for (int i = 0; i < Reader.Count; i++)
+            //  {
+            //      var Work = new Work();
+            //      Work.Id = i;
+            //      Work.Name = Reader[i].ToString();
+            //      Result.Add(Work);
+            //  }
+            //  Console.WriteLine("Response from SrvGetRootTask");
+  
+            return Result;
+        }
+        
         private Int32 Id;
 		// GET api/order/5
         [HttpGet("{id}")]
