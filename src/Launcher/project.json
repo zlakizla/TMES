@@ -1,5 +1,4 @@
 {
-  "webroot": "..\\Frontend",
   "version": "1.0.0-*",
   "DNX_IIS_RUNTIME_FRAMEWORK" : "DNX46",
   "tooling": {
@@ -27,7 +26,6 @@
   },
 
   "exclude": [
-    "wwwroot",
     "node_modules",
     "bower_components"
   ],
