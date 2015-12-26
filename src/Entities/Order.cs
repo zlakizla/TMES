@@ -37,7 +37,10 @@ namespace Entities
 //          }
 
  
-
+        public Order()
+        {
+        
+        }
         public static Order GetFakeOrder(String Name = "9915240")
         {
             var Result = new Order();

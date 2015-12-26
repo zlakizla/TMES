@@ -17,9 +17,6 @@ namespace Launcher.Controllers
              Console.WriteLine("Request for SrvGetRootTask");
              var Result = new List<Work>();
             
-          
-
-          
             var dbManager = DatabaseManager.GetInstance();
             String Request = @"SELECT NAZVO
                             FROM [ConstDocs].[dbo].[BlocksByOperation]
@@ -87,12 +84,12 @@ namespace Launcher.Controllers
                             WHERE zakaz = @Order";
             var RequestArgs = new Dictionary<String,Object>();
             RequestArgs.Add("Order",Id);
-            var Reader = dbManager.SendRequest(Request, RequestArgs);
-            
-            if(Reader.Count > 0)
-            {
-                Result.Code = Reader[0].ToString();
-                Result.Name = Reader[1].ToString();
+            var Rows = dbManager.SendRequest(Request, RequestArgs);
+
+            if(Rows.Count > 0)
+            {         
+                Result.Code = Rows[0]["zakaz"] as String;
+                Result.Name = Rows[0]["NaimZak"] as String;
             }
             return Result;
         }

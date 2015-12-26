@@ -61,10 +61,10 @@ namespace Backend
 			}
 		}
 		
-		public Dictionary<Int32, Object> SendRequest(String Command, Dictionary<String, Object> Parameters)
+		public IList<Row> SendRequest(String Command, Dictionary<String, Object> Parameters)
 		{		
 			// TODO : Конкретизировать резалт	
-			var Result = new Dictionary<Int32, Object>();
+			var Result = new List<Row>();
 			using(SqlCommand cmd = new SqlCommand(Command,PrimaryConnection))
 			{
 				foreach(var Parameter in Parameters)
@@ -78,15 +78,13 @@ namespace Backend
 					var RequestParams = cmd.Parameters.ToString();
              		Console.WriteLine("Send request for database:" + Request);
 					Console.WriteLine("Parameters:" + RequestParams);
-					while(dr.Read())
-					{
-						for(int i = 0; i < dr.FieldCount; i++)
-						{
-							Result.Add(i, dr[i]);
-						}
-					}
+					
+                    var Dataset = new Dataset(dr);
+                    
+                    Result = Dataset.Rows;
 				}
 			}
+            
 			return Result;
 		}
 	}
