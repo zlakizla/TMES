@@ -17,6 +17,9 @@ namespace Entities
 		public Double Progress;
 		public Int32 ParentId;
 		
-		
+		public GanttData ToGanttData()
+        {
+            return null;
+        }
 	}
 }

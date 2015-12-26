@@ -11,6 +11,12 @@ namespace Backend
 
     public class OrderRepository : IOrderRepository
     {
+        OrderService Service;
+        
+        public OrderRepository()
+        {
+            Service = new OrderService();
+        }
         public IEnumerable<Order> SelectAll()
         {
             throw new NotImplementedException();
@@ -18,43 +24,13 @@ namespace Backend
 
         public Order SelectById(Int32 Id)
         {
-            throw new NotImplementedException();
+            var Result = Service.GetOrderById(Id);
+            return Result;
         }
 
         public Order SelectByCode(String Code)
         {
-            Order Result = null;
-//              using (var Context = new NSIEntities())
-//              {
-//                  var SearchResult = Context.Zakaz.FirstOrDefault(x => x.zakaz == Code);
-//                  if (SearchResult != null)
-//                  {
-//                      Result = new Order();
-//                      Result.Code = Code;
-//                      Result.Name = SearchResult.NaimZak;                
-//                  }
-//  
-//                  // PTP = "00" - planned, "02" - unplanned
-//                  IEnumerable<ZakazVPR> Content = Context.ZakazVPR.
-//                                                  Where(x => x.Z == Code
-//                                                   && x.PTP == "00").ToList();
-//                  foreach(var Record in Content)
-//                  {
-//             
-//                      var Element = new Element()
-//                      {
-//               
-//                          Type = ElementType.Block,
-//                          Index = Record.IND_CH,
-//                          Denotation = Record.OBOZN_CH,
-//                          Amount = Record.KSP ?? 1
-//                      };
-//                      Result.Content.Add(Element);
-//                  }
-//  
-//              }
-
-            return Result;
+          throw new NotImplementedException();
         }
 
         public void Insert(Order Department)
