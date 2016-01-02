@@ -13,7 +13,24 @@
     display: block;
     float: left;
     height: 40px;
+}
+
+.RibbonMenu li.Btn
+{
     cursor: pointer;
+}
+
+.RibbonMenu .Btn:hover
+{
+    background-color: #3f3f46;   
+}
+
+.RibbonMenu li>span
+{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    float: left;
 }
 
    .RibbonMenu li img
@@ -22,31 +39,10 @@
        max-height: 100%;
        float: left;
        vertical-align: center;
-       margin-right: 8px;
        margin-left: 10px;
        margin-top: 3px;
    }
-   
-   .RibbonMenu .Btn span
-   {
-       margin-left: 20px;
-       margin-top: 10px;
-       margin-right: 20px;
-       float: left;
-   }
 
-   .RibbonMenu .IconBtn span
-   {
-        margin-right: 20px;
-        margin-top: 10px;
-        float: left;
-   }
-   
-   .IconBtn:hover
-    {
-        background-color: #3f3f46;    
-    }
-    
     .Toggle
     {
         background-color: #073655;   
