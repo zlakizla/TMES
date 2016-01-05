@@ -36,10 +36,10 @@ namespace Backend
         public void ExplodeOrder(Order Order)
         {
             var dbManager = DatabaseManager.GetInstance();
-            String Request = @"EXEC [1gb_x_t_mes].[dbo].[RAZUZ] @OrderId";
+            String Request = @"EXEC [1gb_x_t_mes].[dbo].[RAZUZLOVZAKAZ] 'netGraf',@OrderId";
             var RequestArgs = new Dictionary<String,Object>();
-            RequestArgs.Add("OrderId",Order.Id);
-            dbManager.SendCommand(Request,RequestArgs);
+            RequestArgs.Add("OrderId",Order.Code);
+          //  dbManager.SendCommand(Request,RequestArgs);
         }
         
         // Получить из базы корневые работы в виде: "Цех:Трудоемкость"
@@ -50,7 +50,7 @@ namespace Backend
             String Request = @"SELECT 
                                         C, 
                                         Duration
-                               FROM [1gb_x_t_mes].[dbo].[RootWorks]";
+                               FROM [1gb_x_t_mes].[dbo].[RootWorks] where id='netGraf' ";
             var Rows = dbManager.SendRequest(Request);   
             var Index = 2;
             foreach(var Row in Rows)
