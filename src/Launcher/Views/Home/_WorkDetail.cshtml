@@ -1,11 +1,11 @@
-﻿@model NetGraph.ViewModels.WorkDetailViewModel
+﻿@*@model NetGraph.ViewModels.WorkDetailViewModel*@
 <div style="margin-top:1px">
     <span>Roadmap</span></div>
 <hr />
 <!-- Content -->
 <div style="overflow-y: scroll; height: 100%">
-
-    <table class="MinorTable" style="width: 100%" id="ExploderTable">
+   
+    <table class="MinorTable" style="width: 100%"  id="ExploderTable" >
         <thead>
             <tr>
                 <td>Index</td>
@@ -16,7 +16,7 @@
                 <td>Operation</td>
 
             </tr>
-        </thead>
+        </thead>@*
         <tbody>
             @foreach(var Work in Model.Content)
             {
@@ -41,7 +41,7 @@
                     </td>
                 </tr>
             }
-        </tbody>
+        </tbody>*@
 
     </table>
 

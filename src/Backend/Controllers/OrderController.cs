@@ -43,6 +43,17 @@ namespace Launcher.Controllers
             Result = Service.GetDetails(Order) as List<GanttData>;
             
             return Result;
-        }      
+        }
+        
+        [HttpGet("{id}/{depth}/Exploder")]
+        public IList<Exploder>  GetExploder(int id, int depth)
+        {
+            //var result = new List<Exploder>();
+
+            var result = Service.GetExploderOrder(id, depth);
+            return result;
+        }
+        
+              
     }
 }
