@@ -16,6 +16,11 @@ section {
 /* Styles for basic forms
 -----------------------------------------------------------*/
 
+.hidden {
+    display: none
+}
+
+
 fieldset 
 {
     border:1px solid #ddd;

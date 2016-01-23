@@ -45,15 +45,20 @@ namespace Launcher.Controllers
             return Result;
         }
         
-        [HttpGet("{id}/{depth}/Exploder")]
-        public IList<Exploder>  GetExploder(int id, int depth)
+        [HttpGet("{id}/{parent}/Exploder")]
+        public IList<Exploder>  GetExploder(int id, int parent)
         {
-            //var result = new List<Exploder>();
-
-            var result = Service.GetExploderOrder(id, depth);
+            var result = Service.GetExploderOrder(id, parent);
             return result;
         }
-        
-              
+
+        [HttpGet("{idRecord}/WorkDetail")]
+       public IList<WorkDetail> GetWorkDetails( int idRecord)
+        {
+
+            var result = Service.GetWorkDetails(idRecord);
+
+           return result;
+       }
     }
 }

@@ -4,8 +4,8 @@
 <hr />
 <!-- Content -->
 <div style="overflow-y: scroll; height: 100%">
-   
-    <table class="MinorTable" style="width: 100%"  id="ExploderTable" >
+
+    <table class="MinorTable" style="width: 100%" id="WorkDetaleTable">
         <thead>
             <tr>
                 <td>Index</td>
@@ -14,35 +14,7 @@
                 <td>Department</td>
                 <td>Duration</td>
                 <td>Operation</td>
-
             </tr>
-        </thead>@*
-        <tbody>
-            @foreach(var Work in Model.Content)
-            {
-                <tr>
-                    <td>
-                        @Work.Element.Index
-                    </td>
-                    <td>
-                        @Work.Element.Denotation
-                    </td>
-                    <td>
-                        @Work.ChainNumber
-                    </td>
-                    <td>
-                        @Work.Department.ShortName
-                    </td>
-                    <td>
-                        @Work.Duration
-                    </td>
-                    <td>
-                        @Work.Name
-                    </td>
-                </tr>
-            }
-        </tbody>*@
-
+        </thead>
     </table>
-
 </div>

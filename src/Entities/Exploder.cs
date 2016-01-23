@@ -7,6 +7,7 @@ namespace Entities
 {
     public class Exploder
     {
+        public string id_record { get; set; }
         public string Type { get; set; }
         public string Ind { get; set; }
         public string Denotation { get; set; }
@@ -14,5 +15,13 @@ namespace Entities
         public string Depth { get; set; }
     }
 
-    //public 
+    public class WorkDetail
+    {
+        public string Ind { get; set; }
+        public string Denotation { get; set; }
+        public string Chain { get; set; }
+        public string Department { get; set; }
+        public  string Duration { get; set; }
+        public string Operation { get; set; }
+    }
 }

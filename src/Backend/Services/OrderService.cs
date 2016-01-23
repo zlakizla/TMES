@@ -93,14 +93,14 @@ namespace Backend
         }
 
 
-        public List<Exploder> GetExploderOrder(Int32 order, int depth)
+        public List<Exploder> GetExploderOrder(Int32 order, int parent)
         {
             var result = new List<Exploder>();
             var dbManager = DatabaseManager.GetInstance();
-            String Request = @"SELECT TIP, IND1, PICH, Depth, KSZ 
-                            FROM[1gb_x_t_mes].dbo.tempPOSPRIMB WHERE Depth = @Depth and Z=@Z  and id like 'net%'";
+            String Request = @"SELECT id_record, TIP, IND1, PICH, Depth, KSZ 
+                            FROM[1gb_x_t_mes].dbo.tempPOSPRIMB WHERE Parent = @Parent and Z=@Z  and id like 'net%'";
             var RequestArgs = new Dictionary<String, Object>();
-            RequestArgs.Add("Depth", depth);
+            RequestArgs.Add("Parent", parent);
             RequestArgs.Add("Z", order);
             var Rows = dbManager.SendRequest(Request, RequestArgs);
 
@@ -108,6 +108,7 @@ namespace Backend
             {
                 var Exploder = new Exploder
                 {
+                    id_record = Row["id_record"].ToString(),
                     Type = Row["TIP"].ToString(),
                     Ind = Row["IND1"].ToString(),
                     Denotation = Row["PICH"].ToString(),
@@ -118,6 +119,35 @@ namespace Backend
             }
 
             return result;
+        }
+
+
+        public List<WorkDetail> GetWorkDetails(int idRecord)
+        {
+            var result = new List<WorkDetail>();
+
+            var dbManager = new DatabaseManager();
+            var Request = @"SELECT IND1, PICH, F, C, NV, NAZVO 
+                           FROM [1gb_x_t_mes].dbo.BlocksByOperation WHERE id = 'netGraf' AND id_record=@idRecord ";
+            var RequestArgs= new Dictionary<String, Object>();
+            RequestArgs.Add("idRecord", idRecord);
+            var Rows = dbManager.SendRequest(Request, RequestArgs);
+
+            foreach (var Row in Rows)
+            {
+                var WorkDetail = new WorkDetail
+                {
+                    Ind = Row["IND1"].ToString(),
+                    Denotation = Row["PICH"].ToString(),
+                    Chain = Row["F"].ToString(),
+                    Department = Row["C"].ToString(),
+                    Duration = Row["NV"].ToString(),
+                    Operation = Row["NAZVO"].ToString()
+                };
+                result.Add(WorkDetail);
+            }
+            return result;
+
         }
     }
 }

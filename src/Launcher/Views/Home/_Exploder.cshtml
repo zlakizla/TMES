@@ -2,23 +2,8 @@
 
 @*@using Utils*@
 
-<!-- Path Menu --> 
-<div style="float: left">
-    @*
-        @if (Model.NavigationMenu.Count == 0)
-    {
-        <span class="NavigatorMenu">Root</span>
-    }
-        @foreach (var Element in Model.NavigationMenu)
-        {
-            <span class="NavigatorMenu">
-                @Element.ToString()
-                <span class="Index" style="display: none">@Element.Index</span>
-                <span class="Denotation" style="display: none">@Element.Denotation</span>
-                <span class="Depth" style="display: none">@Element.Depth</span>
-            </span>@*style="display: none;"
-        }*@
-
+<!-- Path Menu -->
+<div id="Navigate" style="float: left">
 </div>
 
     <hr style=" clear: both" />
@@ -27,30 +12,14 @@
        
         <table  class="MinorTable" style="width: 100%" id="ExploderTable">
             <thead>
-                <tr>
-                    <td>Type</td>
-                    <td>Index</td>
-                    <td>Denotation</td>
-                    <td>Amount</td>
-                    <td>Depth</td>
-                </tr>
-            </thead>
-    @*        <tbody>
-        @if (Model.CalendarGraph != null)
-        {
-            foreach (var Element in Model.SelectedElement.Content)
-            {
             <tr>
-                    <td>@Element.Type.GetDesc()</td>
-                    <td class="Index">@Element.Index</td>
-                    <td class="Denotation">@Element.Denotation</td>
-                    <td>@Element.Amount</td>
-                    <td class="Depth">@Element.Depth</td>
+                <td>id_record</td>
+                <td>Type</td>
+                <td>Index</td>
+                <td>Denotation</td>
+                <td>Amount</td>
+                <td>Depth</td>
             </tr>
-            }
-        }
-    </tbody>
-    *@
+            </thead>
     </table>
-
 </div>
