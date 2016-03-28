@@ -11,6 +11,7 @@ namespace Entities
         public Int32 Id;
         public String Code;
         public String Name;
+        public DateTime StartTime;
 
        // public Element Root { get; set; }
 //  
