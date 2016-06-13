@@ -87,10 +87,12 @@ function ShowDetails(result)
 
 function Exploder(result) {
     tE.fnClearTable();
-    tE.fnAddData(result);
+    if (result.length !== 0)
+        tE.fnAddData(result);
 }
 
 function WorkDetail(result) {
     tW.fnClearTable();
-    tW.fnAddData(result);
+    if (result.length !== 0)
+        tW.fnAddData(result);
 }
